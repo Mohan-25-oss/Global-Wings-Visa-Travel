@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Global Wings Visa & Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a52be;
+            --secondary: #e63946;
+            --accent: #4ECDC4;
+            --dark: #1d3557;
+            --light: #f1faee;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(42, 82, 190, 0.95);
+            color: white;
+            position: fixed;
+            width: 90%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo h2 {
+            margin: 0;
+            font-size: 28px;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Main Content */
+        main {
+            padding-top: 100px;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('travel-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary);
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        
+        .service-content p {
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 5% 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .footer-column h3 {
+            color: var(--accent);
+            margin-top: 0;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <h2>Global Wings</h2>
+        </div>
+        <div class="nav-links">
+            <a href="http://127.0.0.1:5500/index.html#">Home</a>
+            <a href="http://127.0.0.1:5500/pages/about.html">About</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Our Professional Services</h1>
+            <p>Your journey begins with our comprehensive travel solutions</p>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <div class="section-title">
+                <h2>আমাদের সেবাসমূহ / Our Services</h2>
+            </div>
+            
+            <div class="services-container">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="visa-service.jpg" alt="Visa Services">
+                    </div>
+                    <div class="service-content">
+                        <h3>ভিসা সেবা / Visa Services</h3>
+                        <p>
+                            <strong>বাংলা:</strong> আমরা সব ধরনের ভিসা প্রসেসিং সেবা প্রদান করি। ট্যুরিস্ট, স্টুডেন্ট, বিজনেস এবং ওয়ার্ক ভিসার জন্য বিশেষায়িত সেবা।
+                        </p>
+                        <p>
+                            <strong>English:</strong> Comprehensive visa processing for tourist, student, business and work visas with high approval rate.
+                        </p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="flight-booking.jpg" alt="Flight Booking">
+                    </div>
+                    <div class="service-content">
+                        <h3>ফ্লাইট বুকিং / Flight Booking</h3>
+                        <p>
+                            <strong>বাংলা:</strong> সবচেয়ে কম দামে বিশ্বের যেকোনো গন্তব্যে ফ্লাইট বুকিং সেবা। বিশেষ ডিসকাউন্ট সুবিধা।
+                        </p>
+                        <p>
+                            <strong>English:</strong> Best price guaranteed for flights to any destination worldwide with exclusive discounts.
+                        </p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="hotel-booking.jpg" alt="Hotel Booking">
+                    </div>
+                    <div class="service-content">
+                        <h3>হোটেল বুকিং / Hotel Reservation</h3>
+                        <p>
+                            <strong>বাংলা:</strong> ৫ স্টার হোটেল থেকে বাজেট হোস্টেল পর্যন্ত সব ধরনের আবাসনের ব্যবস্থা।
+                        </p>
+                        <p>
+                            <strong>English:</strong> Accommodation solutions from 5-star hotels to budget hostels worldwide.
+                        </p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="tour-package.jpg" alt="Tour Packages">
+                    </div>
+                    <div class="service-content">
+                        <h3>ট্যুর প্যাকেজ / Tour Packages</h3>
+                        <p>
+                            <strong>বাংলা:</strong> আপনার পছন্দ ও বাজেট অনুযায়ী কাস্টমাইজড ট্যুর প্যাকেজ।
+                        </p>
+                        <p>
+                            <strong>English:</strong> Customized tour packages tailored to your preferences and budget.
+                        </p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="travel-insurance.jpg" alt="Travel Insurance">
+                    </div>
+                    <div class="service-content">
+                        <h3>ট্রাভেল ইন্সুরেন্স / Travel Insurance</h3>
+                        <p>
+                            <strong>বাংলা:</strong> সাশ্রয়ী মূল্যে সম্পূর্ণ ভ্রমণ বীমা সুরক্ষা।
+                        </p>
+                        <p>
+                            <strong>English:</strong> Affordable comprehensive travel insurance coverage.
+                        </p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="consultancy.jpg" alt="Travel Consultancy">
+                    </div>
+                    <div class="service-content">
+                        <h3>ভ্রমণ পরামর্শ / Travel Consultancy</h3>
+                        <p>
+                            <strong>বাংলা:</strong> অভিজ্ঞ টিম দ্বারা ব্যক্তিগতকৃত ভ্রমণ পরামর্শ সেবা।
+                        </p>
+                        <p>
+                            <strong>English:</strong> Personalized travel consultancy by experienced professionals.
+                        </p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Global Wings</h3>
+                <p>Your trusted travel partner for visa processing, flight booking and tour packages.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>যোগাযোগ / Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Travel Street, Dhaka, Bangladesh</p>
+                <p><i class="fas fa-phone"></i> +880 1234 567890</p>
+                <p><i class="fas fa-envelope"></i> info@globalwings.com</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>সেবা / Services</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="#" style="color: white; text-decoration: none;">Visa Processing</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Flight Booking</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Hotel Reservation</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Tour Packages</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2024 Global Wings Visa & Travel. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
