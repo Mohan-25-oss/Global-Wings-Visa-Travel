@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Global Wings Visa & Travel</title>
     <link rel="stylesheet" href="./css/index.css" />
-    <script defer src="./js/script.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     </head>
     <body>
     <!-- Navbar -->
@@ -40,25 +40,109 @@
     </section>
 
     <!-- Visa Support -->
-    <section class="visa-support" id="visa-support">
-        <div class="visa-support-card">
-            <div class="visa-icon">
-                <i class="fas fa-passport"></i>
-            </div>
-            <div class="visa-content">
-                <h3>Visa Support</h3>
-                <ul class="visa-types">
-                <li><i class="fas fa-check-circle"></i>Visa To Malaysia</li>
-                <li><i class="fas fa-check-circle"></i>Visa To Indonesia</li>
-                <li><i class="fas fa-check-circle"></i>Visa To Thailand</li>
-                <li><i class="fas fa-check-circle"></i>Visa To India</li>
-                <li><i class="fas fa-check-circle"></i>Visa To Sri-Lanka</li>
-                <li><i class="fas fa-check-circle"></i>Visa To Nepal</li>
-                <li><i class="fas fa-check-circle"></i>Visa To China</li>
-                <li><i class="fas fa-check-circle"></i>Visa To Dubai</li>
-                <li><i class="fas fa-check-circle"></i>Visa To Japan</li>
-                </ul>
-            </div>
+        <section>
+                <div class="visa-support-container">
+                <div class="visa-list">
+                    <h2><i class="fas fa-passport"></i> Visa Support</h2>
+                    <ul class="visa-types">
+                        <li class="active" onclick="showVisaDetail('malaysia')">
+                            <i class="fas fa-check-circle"></i>Visa To Malaysia
+                        </li>
+                        <li onclick="showVisaDetail('indonesia')">
+                            <i class="fas fa-check-circle"></i>Visa To Indonesia
+                        </li>
+                        <li onclick="showVisaDetail('thailand')">
+                            <i class="fas fa-check-circle"></i>Visa To Thailand
+                        </li>
+                        <li onclick="showVisaDetail('india')">
+                            <i class="fas fa-check-circle"></i>Visa To India
+                        </li>
+                        <li onclick="showVisaDetail('sri-lanka')">
+                            <i class="fas fa-check-circle"></i>Visa To Sri Lanka
+                        </li>
+                        <li onclick="showVisaDetail('nepal')">
+                            <i class="fas fa-check-circle"></i>Visa To Nepal
+                        </li>
+                        <li onclick="showVisaDetail('dubai')">
+                            <i class="fas fa-check-circle"></i>Visa To Dubai
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="visa-details-container">
+                    <!-- Malaysia Visa -->
+                    <div id="malaysia-visa" class="visa-detail active">
+                        <h3>✨ মালয়েশিয়ার ভিসা পাচ্ছেন সবচেয়ে সস্তায়!</h3>
+                        <p>দ্রুত, সহজ ও নির্ভরযোগ্য সেবা। আমাদের সাথে যোগাযোগ করুন এবং আপনার ভিসা প্রক্রিয়া শুরু করুন!</p>
+                        
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-check"></i> সর্বনিম্ন ফি নিশ্চিত</li>
+                            <li><i class="fas fa-check"></i> দ্রুত প্রসেসিং ও অ্যাপ্রুভাল</li>
+                            <li><i class="fas fa-check"></i> বিশেষজ্ঞ সহায়তা</li>
+                            <li><i class="fas fa-check"></i> অনলাইন ট্র্যাকিং সুবিধা</li>
+                        </ul>
+                        
+                        <p>📞 কল করুন: +880 1234 567890</p>
+                        <p>🌐 ওয়েবসাইট: www.globalwings.com</p>
+                        
+                        <button class="cta-button">এখনই আবেদন করুন</button>
+                    </div>
+
+                    <!-- Indonesia Visa -->
+                    <div id="indonesia-visa" class="visa-detail">
+                        <h3>ইন্দোনেশিয়া ভিসা সেবা</h3>
+                        <p>ইন্দোনেশিয়ার ভিসা প্রক্রিয়া সহজ করুন আমাদের বিশেষজ্ঞ টিমের সাথে।</p>
+                        
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-check"></i> ট্যুরিস্ট ও বিজনেস ভিসা</li>
+                            <li><i class="fas fa-check"></i> ৩-৫ কর্মদিবসে প্রসেসিং</li>
+                            <li><i class="fas fa-check"></i> ডকুমেন্ট প্রস্তুতিতে সহায়তা</li>
+                        </ul>
+                        
+                        <p>📞 কল করুন: +880 1234 567890</p>
+                        <p>🌐 ওয়েবসাইট: www.globalwings.com</p>
+                        
+                        <button class="cta-button">এখনই আবেদন করুন</button>
+                    </div>
+
+                    <!-- Thailand Visa -->
+                    <div id="thailand-visa" class="visa-detail">
+                        <h3>থাইল্যান্ড ভিসা সেবা</h3>
+                        <p>থাইল্যান্ড ভ্রমণের জন্য সহজ ভিসা প্রক্রিয়া।</p>
+                        <!-- অন্যান্য কন্টেন্ট -->
+                        <button class="cta-button">এখনই আবেদন করুন</button>
+                    </div>
+
+                    <!-- India Visa -->
+                    <div id="india-visa" class="visa-detail">
+                        <h3>ভারত ভিসা সেবা</h3>
+                        <p>ভারত ভ্রমণের জন্য প্রয়োজনীয় সব ধরনের ভিসা সেবা।</p>
+                        <!-- অন্যান্য কন্টেন্ট -->
+                        <button class="cta-button">এখনই আবেদন করুন</button>
+                    </div>
+
+                    <!-- Sri Lanka Visa -->
+                    <div id="sri-lanka-visa" class="visa-detail">
+                        <h3>শ্রীলঙ্কা ভিসা সেবা</h3>
+                        <p>শ্রীলঙ্কা ই-ভিসা ও অন্যান্য সেবা।</p>
+                        <!-- অন্যান্য কন্টেন্ট -->
+                        <button class="cta-button">এখনই আবেদন করুন</button>
+                    </div>
+                    <!-- Sri Lanka Visa -->
+                    <div id="nepal-visa" class="visa-detail">
+                        <h3>নেপালের ভিসা ভিসা সেবা</h3>
+                        <p>শ্রীলঙ্কা ই-ভিসা ও অন্যান্য সেবা।</p>
+                        <!-- অন্যান্য কন্টেন্ট -->
+                        <button class="cta-button">এখনই আবেদন করুন</button>
+                    </div>
+                    <!-- Sri Lanka Visa -->
+                    <div id="dubai-visa" class="visa-detail">
+                        <h3>দুবাইয়ের ভিসা ভিসা সেবা</h3>
+                        <p>শ্রীলঙ্কা ই-ভিসা ও অন্যান্য সেবা।</p>
+                        <!-- অন্যান্য কন্টেন্ট -->
+                        <button class="cta-button">এখনই আবেদন করুন</button>
+                    </div>
+                </div>
             </div>
     </section>
 
@@ -105,8 +189,8 @@
     <!-- Tour Section -->
     <section class="tour" id="tour">
         <div class="tour-item">
-        <img src="./images/Malaysia-City-Tour.jpg" alt="Tour 1" />
-        <h5>Malaysia City</h5>
+        <img src="./images/HILL.jpg" alt="Tour 1" />
+        <h5>Thailand-Phuket</h5>
         <span></span>
         <p>Relax on the most beautiful beaches with pristine sand and clear water.</p>
         </div>

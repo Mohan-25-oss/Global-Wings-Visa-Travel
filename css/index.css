@@ -1,51 +1,55 @@
-    /* ===== VARIABLES ===== */
-    :root {
+/* ===== VARIABLES ===== */
+:root {
     --primary: #002244;
     --secondary: #ffcc00;
     --accent: #4ecdc4;
     --dark: #001122;
     --light: #f0f4f8;
-    }
+}
 
-    /* ===== RESET & BASE ===== */
-    * {
+/* ===== RESET & BASE ===== */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    }
+}
 
-    body {
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     line-height: 1.6;
     overflow-x: hidden;
     background-color: var(--light);
-    }
+    padding-top: 80px; /* ন্যাভবারের জন্য স্পেস যোগ করা হয়েছে */
+}
 
-    img {
+img {
     width: 100%;
     height: auto;
-    }
+}
 
-    /* ===== NAVBAR ===== */
-    .navbar {
+/* ===== NAVBAR ===== */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
     background: rgba(0, 34, 68, 0.9);
     position: fixed;
+    top: 0;
     width: 100%;
     z-index: 1000;
     transition: 0.4s ease;
     backdrop-filter: blur(10px);
-    }
-    .navbar.scrolled {
+}
+
+.navbar.scrolled {
     padding: 15px 5%;
     background: rgba(0, 34, 68, 0.95);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    }
-    .logo ul {
+}
+
+.logo ul {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -82,17 +86,19 @@
     100% {background-position: 0% 50%;}
 }
 
-    .nav-links {
+.nav-links {
     display: flex;
     gap: 25px;
-    }
-    .nav-link {
+}
+
+.nav-link {
     color: white;
     text-decoration: none;
     font-weight: 600;
     position: relative;
-    }
-    .nav-link::after {
+}
+
+.nav-link::after {
     content: '';
     position: absolute;
     width: 0;
@@ -101,208 +107,212 @@
     left: 0;
     background: var(--secondary);
     transition: 0.3s ease;
-    }
-    .nav-link:hover {
-    color: var(--secondary);
-    }
-    .nav-link:hover::after {
-    width: 100%;
-    }
+}
 
-    /* ===== HAMBURGER MENU ===== */
-    .hamburger {
+.nav-link:hover {
+    color: var(--secondary);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
     display: none;
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
-    }
-    .hamburger span {
+}
+
+.hamburger span {
     width: 25px;
     height: 3px;
     background: white;
     transition: 0.3s ease;
-    }
+}
 
-    /* ===== HERO BANNER ===== */
-    .hero-banner {
+/* ===== HERO BANNER ===== */
+.hero-banner {
     background: linear-gradient(rgba(15, 15, 15, 0.4), rgba(25, 26, 25, 0.137)),
-        url('../images/HILL.jpg') center/cover no-repeat fixed;
+        url('../images/Malaysia-City-Tour.jpg') center/ cover fixed;
     min-height: 100vh;
     color: white;
     display: flex;
     flex-direction: column;
     animation: fadeIn 1.5s ease-out;
-    }
-    .banner-content {
+}
+
+.banner-content {
     max-width: 1200px;
     margin: auto;
-    padding: 180px 5% 100px;
+    padding: 85px 5% 100px;
     text-align: center;
-    }
-    .animated-text {
+}
+
+.animated-text {
     font-size: 3rem;
     font-weight: 700;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    }
-    .divider {
+}
+
+.divider {
     width: 100px;
     height: 4px;
     background: var(--secondary);
     margin: 20px auto;
-    }
+}
 
-    /* ===== VISA SUPPORT SECTION ===== */
-    .visa-support-card {
-    position: relative;
-    overflow: hidden;
-    padding: 25px;
-    border-radius: 15px;
+/* ===== VISA SUPPORT SECTION ===== */
+.visa-support {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.visa-support-container {
     display: flex;
-    gap: 20px;
-    border-left: 5px solid var(--secondary);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    transition: all 0.4s ease;
+    gap: 30px;
 }
 
-.visa-support-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 150%;
-    background: url('../images/beautiful-woman-makes-photo-landing.jpg') center/cover fixed;
-    z-index: 0;
-}
-
-.visa-content, .visa-icon {
-    position: relative;
-    z-index: 1;
-}
-
-.visa-support-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4); /* Optional dark overlay for better readability */
-    z-index: 0;
-}
-
-.visa-support-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
-}
-
-.visa-icon {
-    font-size: 2.8rem;
-    color: var(--secondary);
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-}
-
-.visa-content h3 {
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-    color: #fff;
-    position: relative;
-    letter-spacing: 1px;
-}
-
-.visa-content h3::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 50%;
-    height: 3px;
-    background: var(--secondary);
+.visa-list {
+    flex: 1;
+    background: white;
     border-radius: 10px;
-    transition: 0.4s ease;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.visa-support-card:hover .visa-content h3::after {
-    width: 100%;
+.visa-list h2 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--secondary);
 }
 
 .visa-types {
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
 .visa-types li {
-    padding: 10px 15px 10px 40px;
-    background: rgba(255, 255, 255, 0.1);
+    padding: 12px 15px;
+    margin-bottom: 8px;
     border-left: 4px solid var(--secondary);
-    border-radius: 10px;
-    margin-bottom: 12px;
-    position: relative;
-    color: #fff;
-    transition: 0.3s;
+    background: rgba(0, 34, 68, 0.05);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.visa-types li:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: scale(1.02);
+.visa-types li:hover, .visa-types li.active {
+    background: var(--primary);
+    color: white;
 }
 
 .visa-types li i {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
+    margin-right: 10px;
     color: var(--secondary);
-    font-size: 1.2rem;
 }
 
+.visa-details-container {
+    flex: 2;
+}
 
+.visa-detail {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: none;
+}
 
-    /* ===== CTA BUTTON ===== */
-    .cta-button {
-    margin-top: 40px;
-    padding: 15px 30px;
-    background: var(--secondary);
+.visa-detail.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.visa-detail h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.visa-detail p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.benefits-list {
+    margin: 20px 0;
+    list-style: none;
+}
+
+.benefits-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.benefits-list li i {
+    color: var(--secondary);
+    margin-right: 10px;
+}
+
+/* ===== CTA BUTTON ===== */
+.cta-button {
+    background-color: var(--secondary);
     color: var(--dark);
     border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
     border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.1rem;
     cursor: pointer;
-    transition: 0.3s;
-    }
-    .cta-button:hover {
-    background: #ffd633;
-    transform: translateY(-5px);
-    }
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    display: inline-block;
+}
 
-    /* ===== EVENTS ===== */
-    .upcoming-event {
+.cta-button:hover {
+    background-color: #ffd633;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== UP COMING EVENTS ===== */
+.upcoming-event {
     padding: 80px 10%;
     text-align: center;
-    }
-    .upcoming-event h2 {
+}
+
+.upcoming-event h2 {
     font-size: 2.5rem;
     color: var(--dark);
-    }
-    .event {
+}
+
+.event {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 40px;
-    }
-    .event-item {
+}
+
+.event-item {
     background: white;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: 0.3s;
-    }
-    .event-item:hover {
+}
+
+.event-item:hover {
     transform: translateY(-10px);
-    }
-    .event-item h4, .event-item p {
+}
+
+.event-item h4, .event-item p {
     padding: 20px;
-    }
-    .event-item a {
+}
+
+.event-item a {
     display: inline-block;
     margin: 0 20px 20px;
     padding: 10px 20px;
@@ -312,89 +322,108 @@
     font-weight: 600;
     text-decoration: none;
     transition: 0.3s;
-    }
-    .event-item a:hover {
+}
+
+.event-item a:hover {
     background: var(--secondary);
     color: white;
-    }
+}
 
-    /* ===== EXPLORE SECTION ===== */
-    .explore-main {
+/* ===== EXPLORE SECTION ===== */
+.explore-main {
     background: linear-gradient(rgba(0, 0, 255, 0.4), rgba(0, 0, 255, 0.4)),
         url('../images/father.jpg') center/cover fixed;
     color: white;
     padding: 100px 10%;
-    }
-    .Explore {
+}
+
+.Explore {
     display: flex;
     flex-wrap: wrap;
-    }
-    .explore-item {
+}
+
+.explore-item {
     flex: 1;
     padding: 20px;
-    }
-    .explore-item h1 {
+}
+
+.explore-item h1 {
     font-size: 3rem;
     margin-bottom: 20px;
-    }
-    .explore-item span {
+}
+
+.explore-item span {
     display: block;
     width: 100px;
     height: 4px;
     background: var(--secondary);
     margin-bottom: 30px;
-    }
-    .explore-item p {
+}
+
+.explore-item p {
     line-height: 1.8;
-    }
-    .explore-item a {
+}
+
+.explore-item a {
     color: white;
     font-weight: 600;
     text-decoration: none;
     border-bottom: 2px solid white;
     padding-bottom: 5px;
-    }
-    .explore-item a:hover {
+}
+
+.explore-item a:hover {
     color: var(--accent);
     border-bottom-color: var(--accent);
-    }
+}
 
-    /* ===== TOUR SECTION ===== */
-    .tour {
+/* ===== TOUR SECTION ===== */
+.tour {
     padding: 80px 10%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    }
-    .tour-item h5 {
+}
+
+.tour-item h5 {
     font-size: 1.8rem;
     color: var(--dark);
-    }
-    .tour-item span {
+}
+
+.tour-item span {
     display: block;
     width: 80px;
     height: 4px;
     background: var(--secondary);
     margin: 20px 0;
-    }
-    .tour-item p {
+}
+
+.tour-item p {
     line-height: 1.8;
-    }
-    .tour-item img {
+}
+
+.tour-item img {
     width: 100%;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
+}
 
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-    }
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-    .hamburger { display: flex; }
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+    
+    .hamburger { 
+        display: flex; 
+    }
+    
     .nav-links {
         position: fixed;
         top: 70px;
@@ -407,22 +436,28 @@
         clip-path: circle(0 at 90% -10%);
         transition: 0.5s ease-out;
     }
+    
     .nav-links.active {
         clip-path: circle(1000px at 90% -10%);
     }
+    
     .banner-content {
         padding: 150px 5% 80px;
     }
+    
     .animated-text {
         font-size: 2rem;
     }
-    .visa-support-card {
+    
+    .visa-support-container {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
     }
-    .visa-content h3::after {
-        left: 50%;
-        transform: translateX(-50%);
+    
+    .visa-list, .visa-detail {
+        width: 100%;
     }
+    
+    .explore-item, .tour-item {
+        flex: 100%;
     }
+}
