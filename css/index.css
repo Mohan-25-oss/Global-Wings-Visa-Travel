@@ -1,0 +1,403 @@
+    /* ===== VARIABLES ===== */
+    :root {
+    --primary: #002244;
+    --secondary: #ffcc00;
+    --accent: #4ecdc4;
+    --dark: #001122;
+    --light: #f0f4f8;
+    }
+
+    /* ===== RESET & BASE ===== */
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-color: var(--light);
+    }
+
+    img {
+    width: 100%;
+    height: auto;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(0, 34, 68, 0.9);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: 0.4s ease;
+    backdrop-filter: blur(10px);
+    }
+    .navbar.scrolled {
+    padding: 15px 5%;
+    background: rgba(0, 34, 68, 0.95);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+    .logo ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+.logo h2 {
+    font-size: 28px;
+    font-weight: 900;
+    background: linear-gradient(45deg, #ff6b6b, #f7d794, #6a89cc, #38ada9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow-text 5s linear infinite;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo h2:hover {
+    transform: scale(1.1);
+}
+
+.logo span {
+    font-size: 18px;
+    font-weight: 700;
+    color: #f39c12;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+/* রেইনবো এনিমেশন */
+@keyframes rainbow-text {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+    .nav-links {
+    display: flex;
+    gap: 25px;
+    }
+    .nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    }
+    .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: var(--secondary);
+    transition: 0.3s ease;
+    }
+    .nav-link:hover {
+    color: var(--secondary);
+    }
+    .nav-link:hover::after {
+    width: 100%;
+    }
+
+    /* ===== HAMBURGER MENU ===== */
+    .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    }
+    .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: 0.3s ease;
+    }
+
+    /* ===== HERO BANNER ===== */
+    .hero-banner {
+    background: linear-gradient(rgba(15, 15, 15, 0.4), rgba(25, 26, 25, 0.137)),
+        url('../images/HILL.jpg') center/cover no-repeat fixed;
+    min-height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 1.5s ease-out;
+    }
+    .banner-content {
+    max-width: 1200px;
+    margin: auto;
+    padding: 180px 5% 100px;
+    text-align: center;
+    }
+    .animated-text {
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    .divider {
+    width: 100px;
+    height: 4px;
+    background: var(--secondary);
+    margin: 20px auto;
+    }
+
+    /* ===== VISA SUPPORT SECTION ===== */
+    .visa-support-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    border-left: 5px solid var(--secondary);
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    gap: 20px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: all 0.4s ease;
+}
+
+.visa-support-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+.visa-icon {
+    font-size: 2.8rem;
+    color: var(--secondary);
+    text-shadow: 0 0 5px rgba(255,255,255,0.3);
+}
+
+.visa-content h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #fff;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+.visa-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50%;
+    height: 3px;
+    background: var(--secondary);
+    border-radius: 10px;
+    transition: 0.4s ease;
+}
+
+.visa-support-card:hover .visa-content h3::after {
+    width: 100%;
+}
+
+.visa-types {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.visa-types li {
+    padding: 10px 15px 10px 40px;
+    background: rgba(182, 140, 140, 0.08);
+    border-left: 4px solid var(--secondary);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    position: relative;
+    color: #60bb7b;
+    transition: 0.3s;
+}
+
+.visa-types li:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.02);
+}
+
+.visa-types li i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary);
+    font-size: 1.2rem;
+}
+
+
+    /* ===== CTA BUTTON ===== */
+    .cta-button {
+    margin-top: 40px;
+    padding: 15px 30px;
+    background: var(--secondary);
+    color: var(--dark);
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    }
+    .cta-button:hover {
+    background: #ffd633;
+    transform: translateY(-5px);
+    }
+
+    /* ===== EVENTS ===== */
+    .upcoming-event {
+    padding: 80px 10%;
+    text-align: center;
+    }
+    .upcoming-event h2 {
+    font-size: 2.5rem;
+    color: var(--dark);
+    }
+    .event {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    }
+    .event-item {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    }
+    .event-item:hover {
+    transform: translateY(-10px);
+    }
+    .event-item h4, .event-item p {
+    padding: 20px;
+    }
+    .event-item a {
+    display: inline-block;
+    margin: 0 20px 20px;
+    padding: 10px 20px;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+    }
+    .event-item a:hover {
+    background: var(--secondary);
+    color: white;
+    }
+
+    /* ===== EXPLORE SECTION ===== */
+    .explore-main {
+    background: linear-gradient(rgba(0, 0, 255, 0.4), rgba(0, 0, 255, 0.4)),
+        url('../images/father.jpg') center/cover fixed;
+    color: white;
+    padding: 100px 10%;
+    }
+    .Explore {
+    display: flex;
+    flex-wrap: wrap;
+    }
+    .explore-item {
+    flex: 1;
+    padding: 20px;
+    }
+    .explore-item h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    }
+    .explore-item span {
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: var(--secondary);
+    margin-bottom: 30px;
+    }
+    .explore-item p {
+    line-height: 1.8;
+    }
+    .explore-item a {
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+    }
+    .explore-item a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+    }
+
+    /* ===== TOUR SECTION ===== */
+    .tour {
+    padding: 80px 10%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    }
+    .tour-item h5 {
+    font-size: 1.8rem;
+    color: var(--dark);
+    }
+    .tour-item span {
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--secondary);
+    margin: 20px 0;
+    }
+    .tour-item p {
+    line-height: 1.8;
+    }
+    .tour-item img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--dark);
+        flex-direction: column;
+        gap: 0;
+        padding: 20px 0;
+        clip-path: circle(0 at 90% -10%);
+        transition: 0.5s ease-out;
+    }
+    .nav-links.active {
+        clip-path: circle(1000px at 90% -10%);
+    }
+    .banner-content {
+        padding: 150px 5% 80px;
+    }
+    .animated-text {
+        font-size: 2rem;
+    }
+    .visa-support-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .visa-content h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    }

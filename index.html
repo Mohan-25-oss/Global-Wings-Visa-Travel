@@ -1,595 +1,129 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Global Wings Visa & Travel</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./css/media.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.ico">
-    <style>
-        /* বেসিক স্টাইল */
-        :root {
-            --primary: #2a52be;
-            --secondary: #e63946;
-            --accent: #4ECDC4;
-            --dark: #1d3557;
-            --light: #f1faee;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        img {
-            width: 100%;
-            height: auto;
-        }
-        
-        /* হেডার স্টাইল */
-        header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./images/dawn.jpg');
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
-            color: white;
-        }
-        
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            position: fixed;
-            width: 90%;
-            z-index: 1000;
-            background: rgba(42, 82, 190, 0.9);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .logo ul {
-            text-decoration: none;
-            text-align: center;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .logo h3 {
-            font-size: 28px;
-            font-weight: 800;
-            background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #FFA07A);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin: 0;
-            line-height: 1.2;
-        }
-        
-        .logo span {
-            font-size: 18px;
-            font-weight: 600;
-            display: block;
-            background: linear-gradient(45deg, #45B7D1, #FFA07A, #FF6B6B);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: 2px;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 600;
-            padding: 8px 15px;
-            position: relative;
-            transition: all 0.3s ease;
-            border-radius: 4px;
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent);
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        .nav-links a.active {
-            color: var(--secondary);
-            font-weight: 700;
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 50%;
-            background-color: var(--accent);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-        
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 70%;
-        }
-        
-        /* ব্যানার স্টাইল */
-        .banner {
-            padding: 25vh 10% 0;
-            text-align: center;
-        }
-        
-        .banner h3 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-        }
-        
-        .banner span {
-            display: block;
-            width: 100px;
-            height: 4px;
-            background: var(--secondary);
-            margin: 20px auto;
-        }
-        
-        .visa-highlights {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
-        }
-        
-        .highlight-item {
-            margin: 15px 0;
-            display: flex;
-            align-items: flex-start;
-        }
-        
-        .highlight-item i {
-            margin-right: 10px;
-            color: var(--accent);
-            font-size: 1.2rem;
-        }
-        
-        .visa-types, .travel-services {
-            margin: 10px 0 10px 30px;
-        }
-        
-        .visa-types li, .travel-services li {
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .visa-types i, .travel-services i {
-            margin-right: 8px;
-            color: var(--accent);
-        }
-        
-        .tagline {
-            font-size: 1.5rem;
-            margin: 30px 0 10px;
-        }
-        
-        .cta {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-        }
-        
-        .cta strong {
-            color: var(--accent);
-        }
-        
-        .banner button {
-            padding: 15px 30px;
-            background: var(--secondary);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
-        }
-        
-        .banner button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255,107,107,0.6);
-        }
-        
-        /* ইভেন্ট সেকশন স্টাইল */
-        .upcoming-event {
-            text-align: center;
-            padding: 80px 10%;
-        }
-        
-        .upcoming-event h2 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 20px;
-        }
-        
-        .upcoming-event span {
-            display: block;
-            width: 100px;
-            height: 4px;
-            background: var(--secondary);
-            margin: 0 auto 40px;
-        }
-        
-        .event {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .event-item {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .event-item:hover {
-            transform: translateY(-10px);
-        }
-        
-        .event-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-        
-        .event-item h4 {
-            padding: 20px 20px 10px;
-            color: var(--primary);
-        }
-        
-        .event-item p {
-            padding: 0 20px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-        
-        .event-item a {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 0 20px 20px;
-            color: var(--secondary);
-            font-weight: 600;
-            text-decoration: none;
-            border: 2px solid var(--secondary);
-            border-radius: 50px;
-            transition: all 0.3s;
-        }
-        
-        .event-item a:hover {
-            background: var(--secondary);
-            color: white;
-        }
-        
-        /* এক্সপ্লোর সেকশন স্টাইল */
-        .explore-main {
-            background: linear-gradient(rgba(0, 0, 255, 0.4), rgba(0, 0, 255, 0.4)), url('./images/father.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            padding: 100px 10%;
-        }
-        
-        .Explore {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        
-        .explore-item {
-            width: 100%;
-            padding: 20px;
-        }
-        
-        .explore-item h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        
-        .explore-item span {
-            display: block;
-            width: 100px;
-            height: 4px;
-            background: var(--secondary);
-            margin-bottom: 30px;
-        }
-        
-        .explore-item p {
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-        
-        .explore-item a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.2rem;
-            border-bottom: 2px solid white;
-            padding-bottom: 5px;
-            transition: all 0.3s;
-        }
-        
-        .explore-item a:hover {
-            color: var(--accent);
-            border-bottom-color: var(--accent);
-        }
-        
-        /* ট্যুর সেকশন স্টাইল */
-        .tour {
-            padding: 80px 10%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .tour-item {
-            margin-bottom: 30px;
-        }
-        
-        .tour-item h5 {
-            font-size: 1.8rem;
-            color: var(--dark);
-            margin-bottom: 20px;
-        }
-        
-        .tour-item span {
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--secondary);
-            margin-bottom: 20px;
-        }
-        
-        .tour-item p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-        
-        .tour-item img {
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        /* ফুটার স্টাইল */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 50px 10% 20px;
-            text-align: center;
-        }
-        
-        footer ul {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 30px;
-            padding: 0;
-            list-style: none;
-        }
-        
-        footer a {
-            color: white;
-            font-size: 1.5rem;
-            transition: all 0.3s;
-        }
-        
-        footer a:hover {
-            color: var(--accent);
-            transform: translateY(-5px);
-        }
-        
-        footer p {
-            margin-top: 20px;
-            color: rgba(255,255,255,0.7);
-        }
-        
-        /* রেস্পন্সিভ স্টাইল */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                padding: 15px;
-            }
-            
-            .nav-links {
-                flex-direction: column;
-                gap: 15px;
-                align-items: center;
-                padding: 20px 0;
-            }
-            
-            .banner {
-                padding: 30vh 5% 0;
-            }
-            
-            .banner h3 {
-                font-size: 1.8rem;
-            }
-            
-            .Explore {
-                flex-direction: column;
-            }
-            
-            .explore-item {
-                width: 100%;
-                padding: 20px 0;
-            }
-            
-            .explore-item h1 {
-                font-size: 2.2rem;
-            }
-            
-            .tour {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-----Header Section Start-------->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <ul>
-                    <li><a href="#"><h3>Global Wings<br><span>Visa & Travel</span></h3></a></li>
-                </ul> 
-            </div>
-            <div class="nav-links">
-                <a href="http://127.0.0.1:5500/index.html#">Home</a>
-                <a href="http://127.0.0.1:5500/pages/about.html">About</a>
-                <a href="services.html" class="active">Services</a>
-                <a href="contact.html">Contact</a>
-            </div>
-        </nav>
-        <div class="banner">
-            <h3>🌍 বিশ্বজুড়ে ভ্রমণের নির্ভরযোগ্য সঙ্গী – Global Wings</h3>
-            <span></span>
-            <h5>
-                <div class="visa-highlights">
-                    <p><i class="fas fa-bolt"></i> Fast & Affordable Visa Services – All in One Place!</p>
-                    
-                    <div class="highlight-item">
-                        <i class="fas fa-check-circle"></i> সাশ্রয়ী খরচে এবং দ্রুত ডেলিভারিতে বিশ্বব্যাপী ভিসা প্রসেসিং
-                    </div>
-                    
-                    <div class="highlight-item">
-                        <i class="fas fa-passport"></i> <strong>All types of Visa Support:</strong>
-                        <ul class="visa-types">
-                            <li><i class="fas fa-check"></i> ট্যুরিস্ট (Tourist Visa)</li>
-                            <li><i class="fas fa-check"></i> স্টুডেন্ট (Student Visa)</li>
-                            <li><i class="fas fa-check"></i> ওয়ার্ক পারমিট (Work Visa)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="highlight-item">
-                        <i class="fas fa-users"></i> আপনার কেস হ্যান্ডেল করবে আমাদের অভিজ্ঞ ও দক্ষ টিম
-                    </div>
-                    
-                    <div class="highlight-item">
-                        <i class="fas fa-hand-holding-heart"></i> Trusted & Transparent Service at the lowest possible cost
-                    </div>
-                    
-                    <div class="highlight-item">
-                        <i class="fas fa-umbrella-beach"></i> <strong>Complete travel support:</strong>
-                        <ul class="travel-services">
-                            <li><i class="fas fa-plane"></i> ফ্লাইট বুকিং (Flight Booking)</li>
-                            <li><i class="fas fa-hotel"></i> হোটেল বুকিং (Hotel Booking)</li>
-                            <li><i class="fas fa-suitcase"></i> ভ্রমণ প্যাকেজ (Customized Tour Packages)</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <p class="tagline"><i class="fas fa-globe-asia"></i> আপনার স্বপ্নের গন্তব্য এখন আর স্বপ্ন নয়!</p>
-                <p class="cta">Start your journey with confidence — Start it with <strong>Global Wings</strong>!</p>
-            </h5>
-            <button>Learn More <i class="fas fa-arrow-right"></i></button> 
+    <link rel="stylesheet" href="./css/index.css" />
+    <script defer src="./js/script.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    </head>
+    <body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="logo">
+            <h2>Global <span>Wings</span></h2>
         </div>
-    </header>
-    <!-----Header Section End-------->
 
-    <!-----upcoming event Start------->
-    <section>
-        <div class="upcoming-event">
-            <h2>Upcoming Event</h2>
-            <span></span>
-            <div class="event">
-                <div class="event-item">
-                    <img src="./images/wanderer.jpg" alt="">
-                    <h4>EVERES CAMP TREK</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia incidunt voluptates a saepe ducimus quod deserunt architecto inventore suscipit ipsam nulla, modi tempore nisi vel possimus nesciunt dignissimos iusto. At.</p>
-                    <a href="#">Learn More</a>
-                </div>
-                <div class="event-item">
-                    <img src="./images/woman.jpg" alt="">
-                    <h4>EVERES CAMP TREK</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia incidunt voluptates a saepe ducimus quod deserunt architecto inventore suscipit ipsam nulla, modi tempore nisi vel possimus nesciunt dignissimos iusto. At.</p>
-                    <a href="#">Learn More</a>
-                </div>
-            </div>
+        <div class="nav-links" id="nav-links">
+        <a href="#banner" class="nav-link">Home</a>
+        <a href="#visa-support" class="nav-link">Visa Support</a>
+        <a href="#events" class="nav-link">Events</a>
+        <a href="#explore" class="nav-link">Explore</a>
+        <a href="#tour" class="nav-link">Tour</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner" id="banner">
+        <div class="banner-content">
+        <h1 class="animated-text">Welcome to Global Wings Visa & Travel</h1>
+        <div class="divider"></div>
+        <p>Your trusted partner for global travel and visa services.</p>
+        <button class="cta-button">Contact Us</button>
         </div>
     </section>
-    <!-----Upcoming event End------->
-    
-    <!--------Explore start---------->
-    <section class="explore-main">
+
+    <!-- Visa Support -->
+    <section class="visa-support" id="visa-support">
+        <div class="visa-support-card">
+            <div class="visa-icon">
+                <i class="fas fa-passport"></i>
+            </div>
+            <div class="visa-content">
+                <h3>Visa Support</h3>
+                <ul class="visa-types">
+                <li><i class="fas fa-check-circle"></i> Student Visa</li>
+                <li><i class="fas fa-check-circle"></i> Tourist Visa</li>
+                <li><i class="fas fa-check-circle"></i> Business Visa</li>
+                </ul>
+            </div>
+            </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section class="upcoming-event" id="events">
+        <h2>Upcoming Events</h2>
+        <div class="event">
+        <div class="event-item">
+            <img src="./images/sea.jpg" alt="Event 1" />
+            <h4>Travel Expo 2025</h4>
+            <p>Join us for the biggest travel expo of the year!</p>
+            <a href="#">Learn More</a>
+        </div>
+        <div class="event-item">
+            <img src="./images/beautiful-woman-makes-photo-landing.jpg" alt="Event 2" />
+            <h4>Visa Workshop</h4>
+            <p>Learn the latest updates on visa application processes.</p>
+            <a href="#">Register Now</a>
+        </div>
+        <div class="event-item">
+            <img src="./images/woman.jpg" alt="Event 3" />
+            <h4>Cultural Festival</h4>
+            <p>Experience the rich cultures from around the world.</p>
+            <a href="#">Explore</a>
+        </div>
+        </div>
+    </section>
+
+    <!-- Explore -->
+    <section class="explore-main" id="explore">
         <div class="Explore">
-            <div class="explore-item"></div>
-            <div class="explore-item">
-                <h1>EXPLORE THE WORLD</h1>
-                <span></span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum nihil possimus quisquam voluptate consequuntur pariatur, fugiat tenetur, ullam, mollitia nisi doloribus explicabo porro tempore. Adipisci alias magnam molestias est quae.</p>
-                <a href="#">Learn More</a>
-            </div>
+        <div class="explore-item">
+            <h1>Explore the World</h1>
+            <span></span>
+            <p>Discover new destinations, cultures, and unforgettable experiences.</p>
+            <a href="#">Start Your Journey</a>
+        </div>
+        <div class="explore-item">
+            <!-- <img src="images/father.jpg" alt="Explore" /> -->
+        </div>
         </div>
     </section>
-    <!--------Explore end---------->
-    
-    <!--------Tour start---------->
-    <section>
-        <div class="tour">
-            <div class="tour-item">
-                <h5>UPCOMING TOUR & DESTINATION</h5>
-                <span></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, repellendus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora cumque animi reprehenderit, accusantium incidunt debitis sequi expedita aliquam cum distinctio, tenetur architecto ullam eos aliquid quae nihil laboriosam repellendus magni vitae at dolorem. Voluptatem, architecto adipisci fugit facilis fugiat illo eaque molestias animi, ut dolores natus? Perspiciatis consequatur fugit Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit obcaecati soluta, quas, ab natus officia ullam nemo velit recusandae ad, adipisci vel dolor nesciunt exercitationem provident eveniet minima aperiam libero!mollitia?</p>
-                <a href="#">Learn More</a>
-            </div>
-            <div class="tour-item">
-                <img class="img-one" src="./images/sea.jpg" alt="">
-                <img class="img-two" src="./images/fisherman.jpg" alt="">
-            </div>
-            <div class="tour-item">
-                <img class="img-two" src="./images/fishermannet.jpg" alt="">
-                <img class="img-one" src="./images/child.jpg" alt="">
-            </div>
-        </div>
-    </section>
-    <!--------Tour end---------->
-    
-    <!--------Footer start---------->
-    <footer>
-        <div>
-            <ul>
-                <li><a href="#"><i class="fab fa-facebook"></i></a></li>    
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-youtube"></i></a></li>    
-                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>    
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li> 
-            </ul>
-        </div>
-        <p>Copyright 2024 || All rights reserved</p>
-    </footer>
-    <!--------Footer end------------>
 
-    <script src="https://kit.fontawesome.com/672582d651.js" crossorigin="anonymous"></script>
-    <script src="./script.js"></script>
-</body>
-</html>
+    <!-- Tour Section -->
+    <section class="tour" id="tour">
+        <div class="tour-item">
+        <img src="images/tour1.jpg" alt="Tour 1" />
+        <h5>Beach Paradise</h5>
+        <span></span>
+        <p>Relax on the most beautiful beaches with pristine sand and clear water.</p>
+        </div>
+        <div class="tour-item">
+        <img src="images/tour2.jpg" alt="Tour 2" />
+        <h5>Mountain Adventure</h5>
+        <span></span>
+        <p>Experience thrilling hiking trails and breathtaking mountain views.</p>
+        </div>
+        <div class="tour-item">
+        <img src="images/tour3.jpg" alt="Tour 3" />
+        <h5>City Lights</h5>
+        <span></span>
+        <p>Explore vibrant cities full of culture, nightlife, and history.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p style="text-align:center; padding: 20px; background: var(--primary); color: white;">
+        &copy; 2025 Global Wings Visa & Travel. All rights reserved.
+        </p>
+    </footer>
+    <script src="./js/script.js"></script>
+    </body>
+    </html>
