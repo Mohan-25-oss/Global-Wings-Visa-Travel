@@ -1,13 +1,14 @@
     <!DOCTYPE html>
-    <html lang="en">
-    <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Global Wings Visa & Travel - Your trusted visa and travel partner">
+    <meta name="keywords" content="visa, travel, malaysia visa, dubai visa">
     <title>Global Wings Visa & Travel</title>
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    </head>
+</head>
     <body>
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
@@ -40,130 +41,174 @@
     </section>
 
     <!-- Visa Support -->
-        <section>
-                <div class="visa-support-container">
-                <div class="visa-list">
-                    <h2><i class="fas fa-passport"></i> Visa Support</h2>
-                    <ul class="visa-types">
-                        <li class="active" onclick="showVisaDetail('malaysia')">
-                            <i class="fas fa-check-circle"></i>Visa To Malaysia
-                        </li>
-                        <li onclick="showVisaDetail('indonesia')">
-                            <i class="fas fa-check-circle"></i>Visa To Indonesia
-                        </li>
-                        <li onclick="showVisaDetail('thailand')">
-                            <i class="fas fa-check-circle"></i>Visa To Thailand
-                        </li>
-                        <li onclick="showVisaDetail('india')">
-                            <i class="fas fa-check-circle"></i>Visa To India
-                        </li>
-                        <li onclick="showVisaDetail('sri-lanka')">
-                            <i class="fas fa-check-circle"></i>Visa To Sri Lanka
-                        </li>
-                        <li onclick="showVisaDetail('nepal')">
-                            <i class="fas fa-check-circle"></i>Visa To Nepal
-                        </li>
-                        <li onclick="showVisaDetail('dubai')">
-                            <i class="fas fa-check-circle"></i>Visa To Dubai
-                        </li>
-                    </ul>
-                </div>
+<section class="visa-section" id="visa-support">
+    <div class="visa-support-container">
+        <div class="visa-list">
+            <h2><i class="fas fa-passport"></i> Visa Support</h2>
+            <ul class="visa-types">
+                <li class="active" onclick="showVisaDetail('malaysia')" 
+                    style="--bg-image: url('images/malaysia-bg.jpg')">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Visa To Malaysia</span>
+                </li>
+                <li onclick="showVisaDetail('indonesia')" 
+                    style="--bg-image: url('images/indonesia-bg.jpg')">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Visa To Indonesia</span>
+                </li>
+                <li onclick="showVisaDetail('thailand')" 
+                    style="--bg-image: url('images/thailand-bg.jpg')">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Visa To Thailand</span>
+                </li>
+                <li onclick="showVisaDetail('india')" 
+                    style="--bg-image: url('images/india-bg.jpg')">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Visa To India</span>
+                </li>
+                <li onclick="showVisaDetail('sri-lanka')" 
+                    style="--bg-image: url('images/sri-lanka-bg.jpg')">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Visa To Sri Lanka</span>
+                </li>
+                <li onclick="showVisaDetail('nepal')" 
+                    style="--bg-image: url('images/nepal-bg.jpg')">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Visa To Nepal</span>
+                </li>
+                <li onclick="showVisaDetail('dubai')" 
+                    style="--bg-image: url('images/dubai-bg.jpg')">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Visa To Dubai</span>
+                </li>
+            </ul>
+        </div>
 
-                <div class="visa-details-container">
-                    <!-- Malaysia Visa -->
-                    <div id="malaysia-visa" class="visa-detail active">
-                        <h3>✨ মালয়েশিয়ার ভিসা পাচ্ছেন সবচেয়ে সস্তায়!</h3>
-                        <p>দ্রুত, সহজ ও নির্ভরযোগ্য সেবা। আমাদের সাথে যোগাযোগ করুন এবং আপনার ভিসা প্রক্রিয়া শুরু করুন!</p>
-                        
-                        <ul class="benefits-list">
-                            <li><i class="fas fa-check"></i> সর্বনিম্ন ফি নিশ্চিত</li>
-                            <li><i class="fas fa-check"></i> দ্রুত প্রসেসিং ও অ্যাপ্রুভাল</li>
-                            <li><i class="fas fa-check"></i> বিশেষজ্ঞ সহায়তা</li>
-                            <li><i class="fas fa-check"></i> অনলাইন ট্র্যাকিং সুবিধা</li>
-                        </ul>
-                        
-                        <p>📞 কল করুন: +880 1234 567890</p>
-                        <p>🌐 ওয়েবসাইট: www.globalwings.com</p>
-                        
-                        <button class="cta-button">এখনই আবেদন করুন</button>
-                    </div>
-
-                    <!-- Indonesia Visa -->
-                    <div id="indonesia-visa" class="visa-detail">
-                        <h3>ইন্দোনেশিয়া ভিসা সেবা</h3>
-                        <p>ইন্দোনেশিয়ার ভিসা প্রক্রিয়া সহজ করুন আমাদের বিশেষজ্ঞ টিমের সাথে।</p>
-                        
-                        <ul class="benefits-list">
-                            <li><i class="fas fa-check"></i> ট্যুরিস্ট ও বিজনেস ভিসা</li>
-                            <li><i class="fas fa-check"></i> ৩-৫ কর্মদিবসে প্রসেসিং</li>
-                            <li><i class="fas fa-check"></i> ডকুমেন্ট প্রস্তুতিতে সহায়তা</li>
-                        </ul>
-                        
-                        <p>📞 কল করুন: +880 1234 567890</p>
-                        <p>🌐 ওয়েবসাইট: www.globalwings.com</p>
-                        
-                        <button class="cta-button">এখনই আবেদন করুন</button>
-                    </div>
-
-                    <!-- Thailand Visa -->
-                    <div id="thailand-visa" class="visa-detail">
-                        <h3>থাইল্যান্ড ভিসা সেবা</h3>
-                        <p>থাইল্যান্ড ভ্রমণের জন্য সহজ ভিসা প্রক্রিয়া।</p>
-                        <!-- অন্যান্য কন্টেন্ট -->
-                        <button class="cta-button">এখনই আবেদন করুন</button>
-                    </div>
-
-                    <!-- India Visa -->
-                    <div id="india-visa" class="visa-detail">
-                        <h3>ভারত ভিসা সেবা</h3>
-                        <p>ভারত ভ্রমণের জন্য প্রয়োজনীয় সব ধরনের ভিসা সেবা।</p>
-                        <!-- অন্যান্য কন্টেন্ট -->
-                        <button class="cta-button">এখনই আবেদন করুন</button>
-                    </div>
-
-                    <!-- Sri Lanka Visa -->
-                    <div id="sri-lanka-visa" class="visa-detail">
-                        <h3>শ্রীলঙ্কা ভিসা সেবা</h3>
-                        <p>শ্রীলঙ্কা ই-ভিসা ও অন্যান্য সেবা।</p>
-                        <!-- অন্যান্য কন্টেন্ট -->
-                        <button class="cta-button">এখনই আবেদন করুন</button>
-                    </div>
-                    <!-- Sri Lanka Visa -->
-                    <div id="nepal-visa" class="visa-detail">
-                        <h3>নেপালের ভিসা ভিসা সেবা</h3>
-                        <p>শ্রীলঙ্কা ই-ভিসা ও অন্যান্য সেবা।</p>
-                        <!-- অন্যান্য কন্টেন্ট -->
-                        <button class="cta-button">এখনই আবেদন করুন</button>
-                    </div>
-                    <!-- Sri Lanka Visa -->
-                    <div id="dubai-visa" class="visa-detail">
-                        <h3>দুবাইয়ের ভিসা ভিসা সেবা</h3>
-                        <p>শ্রীলঙ্কা ই-ভিসা ও অন্যান্য সেবা।</p>
-                        <!-- অন্যান্য কন্টেন্ট -->
-                        <button class="cta-button">এখনই আবেদন করুন</button>
-                    </div>
-                </div>
+        <div class="visa-details-container">
+            <!-- Malaysia Visa -->
+            <div id="malaysia-visa" class="visa-detail active">
+                <h3>✨ মালয়েশিয়ার ভিসা পাচ্ছেন সবচেয়ে সস্তায়!</h3>
+                <p>দ্রুত, সহজ ও নির্ভরযোগ্য সেবা। আমাদের সাথে যোগাযোগ করুন এবং আপনার ভিসা প্রক্রিয়া শুরু করুন!</p>
+                
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check"></i> সর্বনিম্ন ফি নিশ্চিত</li>
+                    <li><i class="fas fa-check"></i> দ্রুত প্রসেসিং ও অ্যাপ্রুভাল</li>
+                    <li><i class="fas fa-check"></i> বিশেষজ্ঞ সহায়তা</li>
+                    <li><i class="fas fa-check"></i> অনলাইন ট্র্যাকিং সুবিধা</li>
+                </ul>
+                
+                <p>📞 কল করুন: xxxxxxxxxxx</p>
+                <p>🌐 ওয়েবসাইট: www.globalwings.com</p>
+                
+                <button class="cta-button">এখনই আবেদন করুন</button>
             </div>
-    </section>
+
+            <!-- Indonesia Visa -->
+            <div id="indonesia-visa" class="visa-detail">
+                <h3>ইন্দোনেশিয়া ভিসা সেবা</h3>
+                <p>ইন্দোনেশিয়ার ভিসা প্রক্রিয়া সহজ করুন আমাদের বিশেষজ্ঞ টিমের সাথে।</p>
+                
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check"></i> ট্যুরিস্ট ও বিজনেস ভিসা</li>
+                    <li><i class="fas fa-check"></i> ৩-৫ কর্মদিবসে প্রসেসিং</li>
+                    <li><i class="fas fa-check"></i> ডকুমেন্ট প্রস্তুতিতে সহায়তা</li>
+                </ul>
+                
+                <p>📞 কল করুন: xxxxxxxxxxxx</p>
+                <p>🌐 ওয়েবসাইট: www.globalwings.com</p>
+                
+                <button class="cta-button">এখনই আবেদন করুন</button>
+            </div>
+
+            <!-- Thailand Visa -->
+            <div id="thailand-visa" class="visa-detail">
+                <h3>থাইল্যান্ড ভিসা সেবা</h3>
+                <p>থাইল্যান্ড ভ্রমণের জন্য সহজ ভিসা প্রক্রিয়া।</p>
+                
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check"></i> ট্যুরিস্ট ভিসা ৩-৫ কর্মদিবসে</li>
+                    <li><i class="fas fa-check"></i> বিজনেস ভিসা সেবা</li>
+                    <li><i class="fas fa-check"></i> ইমিগ্রেশন কনসাল্টেশন</li>
+                </ul>
+                
+                <button class="cta-button">এখনই আবেদন করুন</button>
+            </div>
+
+            <!-- India Visa -->
+            <div id="india-visa" class="visa-detail">
+                <h3>ভারত ভিসা সেবা</h3>
+                <p>ভারত ভ্রমণের জন্য প্রয়োজনীয় সব ধরনের ভিসা সেবা।</p>
+                
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check"></i> ট্যুরিস্ট ভিসা</li>
+                    <li><i class="fas fa-check"></i> মেডিকেল ভিসা</li>
+                    <li><i class="fas fa-check"></i> বিজনেস ভিসা</li>
+                </ul>
+                
+                <button class="cta-button">এখনই আবেদন করুন</button>
+            </div>
+
+            <!-- Sri Lanka Visa -->
+            <div id="sri-lanka-visa" class="visa-detail">
+                <h3>শ্রীলঙ্কা ভিসা সেবা</h3>
+                <p>শ্রীলঙ্কা ই-ভিসা ও অন্যান্য সেবা।</p>
+                
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check"></i> ই-ভিসা ২৪ ঘন্টায়</li>
+                    <li><i class="fas fa-check"></i> অন-অ্যারাইভাল ভিসা</li>
+                </ul>
+                
+                <button class="cta-button">এখনই আবেদন করুন</button>
+            </div>
+
+            <!-- Nepal Visa -->
+            <div id="nepal-visa" class="visa-detail">
+                <h3>নেপাল ভিসা সেবা</h3>
+                <p>নেপাল ভ্রমণের জন্য সহজ ভিসা প্রক্রিয়া।</p>
+                
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check"></i> অন-অ্যারাইভাল ভিসা</li>
+                    <li><i class="fas fa-check"></i> ট্যুরিস্ট ভিসা</li>
+                </ul>
+                
+                <button class="cta-button">এখনই আবেদন করুন</button>
+            </div>
+
+            <!-- Dubai Visa -->
+            <div id="dubai-visa" class="visa-detail">
+                <h3>দুবাই ভিসা সেবা</h3>
+                <p>দুবাই ভ্রমণের জন্য প্রয়োজনীয় সব ধরনের ভিসা সেবা।</p>
+                
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check"></i> ট্যুরিস্ট ভিসা</li>
+                    <li><i class="fas fa-check"></i> ট্রানজিট ভিসা</li>
+                    <li><i class="fas fa-check"></i> ৩০/৬০ দিনের ভিসা</li>
+                </ul>
+                
+                <button class="cta-button">এখনই আবেদন করুন</button>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Upcoming Events -->
     <section class="upcoming-event" id="events">
         <h2>Upcoming Events</h2>
         <div class="event">
         <div class="event-item">
-            <img src="./images/sea.jpg" alt="Event 1" />
+            <img src="./images/sea.jpg" alt="Travel Expo 2025 banner image" />
             <h4>Travel Expo 2025</h4>
             <p>Join us for the biggest travel expo of the year!</p>
             <a href="#">Learn More</a>
         </div>
         <div class="event-item">
-            <img src="./images/beautiful-woman-makes-photo-landing.jpg" alt="Event 2" />
+            <img src="./images/beautiful-woman-makes-photo-landing.jpg" alt="Visa workshop event" />
             <h4>Visa Workshop</h4>
             <p>Learn the latest updates on visa application processes.</p>
             <a href="#">Register Now</a>
         </div>
         <div class="event-item">
-            <img src="./images/woman.jpg" alt="Event 3" />
+            <img src="./images/woman.jpg" alt="Cultural festival image" />
             <h4>Cultural Festival</h4>
             <p>Experience the rich cultures from around the world.</p>
             <a href="#">Explore</a>
@@ -181,7 +226,7 @@
             <a href="#">Start Your Journey</a>
         </div>
         <div class="explore-item">
-            <!-- <img src="images/father.jpg" alt="Explore" /> -->
+    <img src="images/father.jpg" alt="Family traveling together" />
         </div>
         </div>
     </section>
@@ -189,31 +234,36 @@
     <!-- Tour Section -->
     <section class="tour" id="tour">
         <div class="tour-item">
-        <img src="./images/HILL.jpg" alt="Tour 1" />
+        <img src="./images/HILL.jpg" alt="Thailand Phuket beach view" />
         <h5>Thailand-Phuket</h5>
         <span></span>
         <p>Relax on the most beautiful beaches with pristine sand and clear water.</p>
         </div>
         <div class="tour-item">
-        <img src="./images/Indonesia.jpg" alt="Tour 2" />
+        <img src="./images/Indonesia.jpg" alt="Mountain adventure tour" />
         <h5>Mountain Adventure</h5>
         <span></span>
         <p>Experience thrilling hiking trails and breathtaking mountain views.</p>
         </div>
         <div class="tour-item">
-        <img src="./images/Thailand-Phuket-Tour-" alt="Tour 3" />
-        <h5>Thailand</h5>
+        <img src="./images/Dubai.jpg" alt="Dubai city" />
+        <h5>Dubai City</h5>
         <span></span>
         <p>Explore vibrant cities full of culture, nightlife, and history.</p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <p style="text-align:center; padding: 20px; background: var(--primary); color: white;">
-        &copy; 2025 Global Wings Visa & Travel. All rights reserved.
-        </p>
-    </footer>
-    <script src="./js/script.js"></script>
+    <footer class="site-footer">
+    <div class="footer-content">
+        <p>&copy; 2025 Global Wings Visa & Travel. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+</footer>
+    <script src="./js/script.js" defer></script>
     </body>
     </html>

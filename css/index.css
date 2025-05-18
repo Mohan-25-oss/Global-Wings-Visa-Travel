@@ -26,6 +26,7 @@ body {
 img {
     width: 100%;
     height: auto;
+    display: block;
 }
 
 /* ===== NAVBAR ===== */
@@ -39,8 +40,12 @@ img {
     top: 0;
     width: 100%;
     z-index: 1000;
-    transition: 0.4s ease;
+    transition: transform 0.3s ease, background 0.3s ease;
     backdrop-filter: blur(10px);
+}
+
+.navbar.hide {
+    transform: translateY(-100%);
 }
 
 .navbar.scrolled {
@@ -98,6 +103,9 @@ img {
     position: relative;
 }
 
+.nav-link:focus{
+    outline: 2px solid var(--secondary);
+}
 .nav-link::after {
     content: '';
     position: absolute;
@@ -164,53 +172,81 @@ img {
 }
 
 /* ===== VISA SUPPORT SECTION ===== */
-.visa-support {
-    padding: 80px 5%;
-    max-width: 1200px;
-    margin: 0 auto;
+.visa-section {
+    padding: 50px 0;
+    background-color: #f8f9fa;
 }
 
 .visa-support-container {
     display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
     gap: 30px;
 }
 
 .visa-list {
-    flex: 1;
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* বা ফিক্সড হাইট দিন */
 }
 
 .visa-list h2 {
-    color: var(--primary);
+    color: #002244;
     margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .visa-types {
     list-style: none;
+    padding: 0;
 }
 
 .visa-types li {
-    padding: 12px 15px;
-    margin-bottom: 8px;
-    border-left: 4px solid var(--secondary);
-    background: rgba(0, 34, 68, 0.05);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.visa-types li:hover, .visa-types li.active {
-    background: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
     color: white;
+    font-weight: bold;
+    background-image: var(--bg-image, linear-gradient(var(--primary), var(--dark)));
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+    width: 100%;
 }
 
-.visa-types li i {
-    margin-right: 10px;
-    color: var(--secondary);
+.visa-types li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 34, 68, 0.7);
+    z-index: 0;
+}
+
+.visa-types li i, 
+.visa-types li span {
+    position: relative;
+    z-index: 1;
+}
+
+.visa-types li.active {
+    border: 2px solid #ffcc00;
+}
+
+.visa-types li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .visa-details-container {
@@ -218,49 +254,39 @@ img {
 }
 
 .visa-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
     background: white;
     border-radius: 10px;
     padding: 30px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     display: none;
+    transition: opacity 0.3s ease;
 }
 
 .visa-detail.active {
     display: block;
+    max-height: 1000px; /* বা যথেষ্ট বড় কিছু */
     animation: fadeIn 0.5s ease;
 }
 
-.visa-detail h3 {
-    color: var(--primary);
-    margin-bottom: 20px;
-    font-size: 24px;
-}
-
-.visa-detail p {
-    margin-bottom: 15px;
-    line-height: 1.8;
-}
-
-.benefits-list {
-    margin: 20px 0;
-    list-style: none;
-}
+    .benefits-list {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+    }
 
 .benefits-list li {
     margin-bottom: 10px;
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
-.benefits-list li i {
-    color: var(--secondary);
-    margin-right: 10px;
-}
-
-/* ===== CTA BUTTON ===== */
-.cta-button {
-    background-color: var(--secondary);
-    color: var(--dark);
+    .cta-button {
+    background-color: #ffcc00;
+    color: #002244;
     border: none;
     padding: 12px 30px;
     font-size: 16px;
@@ -269,13 +295,49 @@ img {
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 20px;
-    display: inline-block;
-}
+    }
 
 .cta-button:hover {
     background-color: #ffd633;
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* dark theme scrollbar */
+    ::-webkit-scrollbar {
+    width: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 10px;
+    }
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .hero-banner {
+        background-attachment: scroll;
+    }
+    
+    .visa-types li {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .visa-detail {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s, height 0.3s;
+}
+.visa-detail.active {
+    opacity: 1;
+    height: auto;
+}
 }
 
 /* ===== UP COMING EVENTS ===== */
@@ -404,6 +466,7 @@ img {
 
 .tour-item img {
     width: 100%;
+    height: 100%;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }

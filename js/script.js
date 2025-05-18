@@ -7,6 +7,14 @@
     hamburger.classList.toggle('active');
     });
 
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    hamburger.classList.remove('active');
+  });
+});
+
+
     // Navbar background change on scroll
     window.addEventListener('scroll', () => {
     const navbar = document.getElementById('navbar');
@@ -18,20 +26,24 @@
     });
 
 // M-VISA SECTION 
-function showVisaDetail(visaType) {
-            // সব Visa ডিটেইল লুকিয়ে দিন
-            document.querySelectorAll('.visa-detail').forEach(detail => {
-                detail.classList.remove('active');
-            });
-            
-            // সব লিস্ট আইটেম থেকে active ক্লাস রিমুভ করুন
-            document.querySelectorAll('.visa-types li').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // বর্তমান আইটেমে active ক্লাস যোগ করুন
-            event.currentTarget.classList.add('active');
-            
-            // সংশ্লিষ্ট Visa ডিটেইল দেখান
-            document.getElementById(visaType + '-visa').classList.add('active');
-        }
+function showVisaDetail(country) {
+    const allVisaDetails = document.querySelectorAll(".visa-detail");
+    const allVisaItems = document.querySelectorAll(".visa-types li");
+
+    allVisaDetails.forEach((detail) => {
+        detail.classList.remove("active");
+    });
+
+    allVisaItems.forEach((item) => {
+        item.classList.remove("active");
+    });
+
+    document.getElementById(`${country}-visa`).classList.add("active");
+    const clickedItem = Array.from(allVisaItems).find(item =>
+        item.getAttribute("onclick").includes(country)
+    );
+    if (clickedItem) {
+        clickedItem.classList.add("active");
+    }
+    }
+
