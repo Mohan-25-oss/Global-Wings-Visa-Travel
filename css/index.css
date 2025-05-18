@@ -524,3 +524,54 @@ img {
         flex: 100%;
     }
 }
+
+/* ===== FOOTER ===== */
+.site-footer {
+    background-color: var(--primary); /* গা dark নীল ব্যাকগ্রাউন্ড */
+    color: white; /* লেখার রঙ সাদা */
+    padding: 40px 10%; /* উপর-নিচে ৪০পিক্সেল এবং পাশে ১০% প্যাডিং */
+    text-align: center; /* লেখাগুলো মাঝখানে থাকবে */
+}
+
+.site-footer .footer-content {
+    display: flex;
+    flex-direction: column; /* আইটেমগুলো উপর থেকে নিচে সাজানো হবে */
+    align-items: center;
+    gap: 20px; /* আইটেমগুলোর মাঝে ২০পিক্সেল ব্যবধান থাকবে */
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.site-footer .social-links {
+    display: flex;
+    gap: 20px; /* প্রতিটি আইকনের মাঝে ২০পিক্সেল গ্যাপ */
+}
+
+.site-footer .social-links a {
+    color: white; /* আইকনের রঙ সাদা */
+    font-size: 20px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.site-footer .social-links a:hover {
+    color: var(--secondary); /* হোভার করলে হলুদ হয়ে যাবে */
+    transform: scale(1.2); /* হোভার করলে আইকন একটু বড় দেখাবে */
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 30px 5%;
+    }
+    
+    .site-footer .footer-content {
+        gap: 15px;
+    }
+
+    .site-footer .social-links a {
+        font-size: 18px;
+    }
+}
+/* ===== END OF CSS ===== */
