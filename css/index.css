@@ -172,173 +172,182 @@ img {
 }
 
 /* ===== VISA SUPPORT SECTION ===== */
-.visa-section {
-    padding: 50px 0;
-    background-color: #f8f9fa;
-}
+/* ===== BASE STYLE ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #4c6680;
+    color: #ac6f6f;
+    }
 
-.visa-support-container {
-    display: flex;
+    /* ===== CONTAINER CENTER ===== */
+    .container {
     max-width: 1200px;
-    margin: 0 auto;
-    gap: 30px;
-}
+    margin: 40px auto;
+    padding: 0 20px;
+    }
 
-.visa-list {
+    /* ===== VISA SECTION WRAPPER ===== */
+    .visa-section {
     display: flex;
-    flex-direction: column;
-    height: 100%; /* বা ফিক্সড হাইট দিন */
-}
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: center;
+    }
 
-.visa-list h2 {
-    color: #002244;
+    /* ===== VISA MENU (LEFT SIDE) ===== */
+    .visa-menu {
+    width: 220px;
+    min-width: 180px;
+    }
+
+    .visa-menu h3 {
     margin-bottom: 20px;
+    font-size: 20px;
+    color: #003366;
     display: flex;
     align-items: center;
-    gap: 10px;
-}
+    gap: 8px;
+    }
 
-.visa-types {
+    .visa-types {
     list-style: none;
     padding: 0;
-}
+    margin: 0;
+    }
 
-.visa-types li {
-    padding: 15px;
+    .visa-types li {
+    background: #e4dbe9;
+    padding: 12px 18px;
     margin-bottom: 10px;
     border-radius: 8px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 10px;
-    color: white;
-    font-weight: bold;
-    background-image: var(--bg-image, linear-gradient(var(--primary), var(--dark)));
-    background-size: cover;
-    background-position: center;
+    color: #38ada9;
+    gap: 8px;
+    }
+
+    .visa-types li:hover,
+    .visa-types li.active {
+    background-color: #003366;
+    color: #fff;
+    }
+
+    /* ===== VISA DETAILS PANEL (RIGHT SIDE) ===== */
+    .visa-details {
+    flex: 1;
+    min-width: 750px;
+    max-width: 1550px;
+    background: white;
+    margin: 50px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
-    height: 100%;
-    width: 100%;
-}
+    min-height: 550px;
+    }
 
-.visa-types li::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 34, 68, 0.7);
-    z-index: 0;
-}
-
-.visa-types li i, 
-.visa-types li span {
+    /* ===== VISA DETAIL CONTENTS ===== */
+    .visa-detail {
+    display: none;
     position: relative;
     z-index: 1;
-}
+    }
 
-.visa-types li.active {
-    border: 2px solid #ffcc00;
-}
-
-.visa-types li:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.visa-details-container {
-    flex: 2;
-}
-
-.visa-detail {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-    background: white;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    display: none;
-    transition: opacity 0.3s ease;
-}
-
-.visa-detail.active {
+    .visa-detail.active {
     display: block;
-    max-height: 1000px; /* বা যথেষ্ট বড় কিছু */
-    animation: fadeIn 0.5s ease;
-}
-
-    .benefits-list {
-        list-style: none;
-        padding: 0;
-        margin: 20px 0;
     }
 
-.benefits-list li {
+    .visa-detail h4 {
+    color: #cc6600;
+    font-size: 20px;
     margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+    }
 
-    .cta-button {
-    background-color: #ffcc00;
-    color: #002244;
+    .visa-detail ul {
+    padding-left: 20px;
+    margin: 15px 0;
+    }
+
+    .visa-detail li {
+    margin-bottom: 8px;
+    }
+
+    .visa-detail button {
+    padding: 10px 25px;
+    background: #ffc107;
+    color: #000;
+    font-weight: 600;
     border: none;
-    padding: 12px 30px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 50px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 20px;
+    transition: background 0.3s;
     }
 
-.cta-button:hover {
-    background-color: #ffd633;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* dark theme scrollbar */
-    ::-webkit-scrollbar {
-    width: 8px;
-    }
-    ::-webkit-scrollbar-thumb {
-    background-color: var(--primary);
-    border-radius: 10px;
+    .visa-detail button:hover {
+    background: #e0a800;
     }
 
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 768px) {
-    .hero-banner {
-        background-attachment: scroll;
+    /* ===== BACKGROUND IMAGES FOR DETAILS ===== */
+    #malaysia,
+    #indonesia,
+    #thailand,
+    #india {
+    background-size: cover;
+    background-position: center;
+    color: rgb(16, 16, 17);
+    border-radius: 12px;
     }
-    
-    .visa-types li {
-        padding: 12px;
-        font-size: 14px;
+
+    #malaysia {
+    background-image: url('../images/malaysia-bg.jpg');
     }
-    
-    .visa-detail {
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
-    transition: opacity 0.3s, height 0.3s;
-}
-.visa-detail.active {
-    opacity: 1;
-    height: auto;
-}
-}
+
+    #indonesia {
+    background-image: url('images/indonesia.jpg');
+    }
+
+    #thailand {
+    background-image: url('images/thailand.jpg');
+    }
+
+    #india {
+    background-image: url('images/india.jpg');
+    }
+
+    /* ===== OVERLAY EFFECT ===== */
+    .visa-detail::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+    border-radius: 12px;
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 768px) {
+    .visa-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .visa-menu,
+    .visa-details {
+        width: 100%;
+    }
+
+    .visa-menu {
+        margin-bottom: 20px;
+    }
+    }
+
 
 /* ===== UP COMING EVENTS ===== */
 .upcoming-event {
@@ -447,6 +456,7 @@ img {
     gap: 30px;
 }
 
+
 .tour-item h5 {
     font-size: 1.8rem;
     color: var(--dark);
@@ -524,54 +534,3 @@ img {
         flex: 100%;
     }
 }
-
-/* ===== FOOTER ===== */
-.site-footer {
-    background-color: var(--primary); /* গা dark নীল ব্যাকগ্রাউন্ড */
-    color: white; /* লেখার রঙ সাদা */
-    padding: 40px 10%; /* উপর-নিচে ৪০পিক্সেল এবং পাশে ১০% প্যাডিং */
-    text-align: center; /* লেখাগুলো মাঝখানে থাকবে */
-}
-
-.site-footer .footer-content {
-    display: flex;
-    flex-direction: column; /* আইটেমগুলো উপর থেকে নিচে সাজানো হবে */
-    align-items: center;
-    gap: 20px; /* আইটেমগুলোর মাঝে ২০পিক্সেল ব্যবধান থাকবে */
-}
-
-.site-footer p {
-    margin: 0;
-    font-size: 16px;
-}
-
-.site-footer .social-links {
-    display: flex;
-    gap: 20px; /* প্রতিটি আইকনের মাঝে ২০পিক্সেল গ্যাপ */
-}
-
-.site-footer .social-links a {
-    color: white; /* আইকনের রঙ সাদা */
-    font-size: 20px;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.site-footer .social-links a:hover {
-    color: var(--secondary); /* হোভার করলে হলুদ হয়ে যাবে */
-    transform: scale(1.2); /* হোভার করলে আইকন একটু বড় দেখাবে */
-}
-
-@media (max-width: 768px) {
-    .site-footer {
-        padding: 30px 5%;
-    }
-    
-    .site-footer .footer-content {
-        gap: 15px;
-    }
-
-    .site-footer .social-links a {
-        font-size: 18px;
-    }
-}
-/* ===== END OF CSS ===== */

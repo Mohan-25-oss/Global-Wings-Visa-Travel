@@ -27,23 +27,26 @@ document.querySelectorAll('.nav-link').forEach(link => {
 
 // M-VISA SECTION 
 function showVisaDetail(country) {
-    const allVisaDetails = document.querySelectorAll(".visa-detail");
-    const allVisaItems = document.querySelectorAll(".visa-types li");
+  // সব ভিসা ডিটেইল হাইড করি
+  const allDetails = document.querySelectorAll('.visa-detail');
+  allDetails.forEach(detail => detail.classList.remove('active'));
 
-    allVisaDetails.forEach((detail) => {
-        detail.classList.remove("active");
-    });
+  // সব মেনু থেকে active রিমুভ করি
+  const allItems = document.querySelectorAll('.visa-types li');
+  allItems.forEach(item => item.classList.remove('active'));
 
-    allVisaItems.forEach((item) => {
-        item.classList.remove("active");
-    });
+  // যেটা সিলেক্ট করা হয়েছে সেটায় active ক্লাস অ্যাড করি
+  const selectedDetail = document.getElementById(country);
+  if (selectedDetail) {
+    selectedDetail.classList.add('active');
+  }
 
-    document.getElementById(`${country}-visa`).classList.add("active");
-    const clickedItem = Array.from(allVisaItems).find(item =>
-        item.getAttribute("onclick").includes(country)
-    );
-    if (clickedItem) {
-        clickedItem.classList.add("active");
-    }
-    }
+  const selectedItem = Array.from(allItems).find(item =>
+    item.textContent.toLowerCase().includes(country)
+  );
+  if (selectedItem) {
+    selectedItem.classList.add('active');
+  }
+}
 
+    
