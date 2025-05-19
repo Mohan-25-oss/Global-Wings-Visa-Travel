@@ -534,3 +534,178 @@ body {
         flex: 100%;
     }
 }
+
+/* ===== ENHANCED MOBILE RESPONSIVE STYLES ===== */
+
+/* Improved Mobile Menu Animation */
+@media (max-width: 768px) {
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    /* Smoother menu transition */
+    .nav-links {
+        height: calc(100vh - 70px);
+        justify-content: center;
+        gap: 30px;
+    }
+    
+    .nav-link {
+        font-size: 1.2rem;
+        padding: 10px 0;
+    }
+}
+
+/* Better Touch Targets for Mobile */
+.nav-link, .visa-types li, .event-item a {
+    touch-action: manipulation;
+}
+
+/* Optimized Hero Banner for Mobile */
+@media (max-width: 768px) {
+    .hero-banner {
+        min-height: 80vh;
+        background-attachment: scroll; /* Remove parallax on mobile */
+    }
+    
+    .banner-content {
+        padding: 100px 5% 60px;
+    }
+    
+    .animated-text {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+}
+
+/* Enhanced Visa Section for Small Screens */
+@media (max-width: 480px) {
+    .visa-details {
+        margin: 20px 0;
+        padding: 20px 15px;
+        min-height: auto;
+    }
+    
+    .visa-menu {
+        width: 100%;
+    }
+    
+    .visa-types li {
+        padding: 15px;
+    }
+}
+
+/* Improved Event Cards for Mobile */
+@media (max-width: 600px) {
+    .event {
+        grid-template-columns: 1fr;
+    }
+    
+    .event-item {
+        margin: 0 10px;
+    }
+}
+
+/* Better Form Inputs for Mobile */
+input, select, textarea, button {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+    min-height: 44px; /* Better touch target */
+}
+
+/* Optimized Typography for Mobile */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+    
+    h1, .explore-item h1 {
+        font-size: 2rem;
+    }
+    
+    h2, .upcoming-event h2 {
+        font-size: 1.8rem;
+    }
+    
+    h5, .tour-item h5 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Performance Optimizations */
+img {
+    max-width: 100%;
+    height: auto;
+    will-change: transform;
+}
+
+/* Reduced Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Landscape Orientation Adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero-banner {
+        min-height: 120vh;
+    }
+    
+    .nav-links {
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+}
+
+/* Very Small Devices (e.g., iPhone 5/SE) */
+@media (max-width: 320px) {
+    .logo h2 {
+        font-size: 1.5rem;
+    }
+    
+    .banner-content {
+        padding: 80px 5% 40px;
+    }
+    
+    .divider, .explore-item span, .tour-item span {
+        width: 60px;
+    }
+}
+
+/* Tablet Specific Adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .visa-details {
+        min-width: 500px;
+    }
+    
+    .explore-item {
+        flex: 50%;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #f1f1f1;
+    }
+    
+    .event-item, .visa-details {
+        background: #1e1e1e;
+        color: #f1f1f1;
+    }
+    
+    .visa-types li {
+        background: #2d2d2d;
+        color: #4ecdc4;
+    }
+}
