@@ -1,711 +1,657 @@
-/* ===== VARIABLES ===== */
-:root {
-    --primary: #002244;
-    --secondary: #ffcc00;
-    --accent: #4ecdc4;
-    --dark: #001122;
-    --light: #f0f4f8;
-}
-
-/* ===== RESET & BASE ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-    line-height: 1.6;
-    overflow-x: hidden;
-    background-color: var(--light);
-    padding-top: 80px; /* ন্যাভবারের জন্য স্পেস যোগ করা হয়েছে */
-}
-
-img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* ===== NAVBAR ===== */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 5%;
-    background: rgba(0, 34, 68, 0.9);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    transition: transform 0.3s ease, background 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-.navbar.hide {
-    transform: translateY(-100%);
-}
-
-.navbar.scrolled {
-    padding: 15px 5%;
-    background: rgba(0, 34, 68, 0.95);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-}
-
-.logo ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    gap: 10px;
-}
-
-.logo h2 {
-    font-size: 28px;
-    font-weight: 900;
-    background: linear-gradient(45deg, #ff6b6b, #f7d794, #6a89cc, #38ada9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: rainbow-text 5s linear infinite;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.logo h2:hover {
-    transform: scale(1.1);
-}
-
-.logo span {
-    font-size: 18px;
-    font-weight: 700;
-    color: #f39c12;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
-/* রেইনবো এনিমেশন */
-@keyframes rainbow-text {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-
-.nav-links {
-    display: flex;
-    gap: 25px;
-}
-
-.nav-link {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    position: relative;
-}
-
-.nav-link:focus{
-    outline: 2px solid var(--secondary);
-}
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background: var(--secondary);
-    transition: 0.3s ease;
-}
-
-.nav-link:hover {
-    color: var(--secondary);
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-/* ===== HAMBURGER MENU ===== */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: white;
-    transition: 0.3s ease;
-}
-
-/* ===== HERO BANNER ===== */
-.hero-banner {
-    background: linear-gradient(rgba(15, 15, 15, 0.4), rgba(25, 26, 25, 0.137)),
-        url('../images/Malaysia-City-Tour.jpg') center/ cover fixed;
-    min-height: 100vh;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    animation: fadeIn 1.5s ease-out;
-}
-
-.banner-content {
-    max-width: 1200px;
-    margin: auto;
-    padding: 85px 5% 100px;
-    text-align: center;
-}
-
-.animated-text {
-    font-size: 3rem;
-    font-weight: 700;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-.divider {
-    width: 100px;
-    height: 4px;
-    background: var(--secondary);
-    margin: 20px auto;
-}
-
-/* ===== VISA SUPPORT SECTION ===== */
-/* ===== BASE STYLE ===== */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #4c6680;
-    color: #ac6f6f;
+    /* ===== VARIABLES ===== */
+    :root {
+        --primary: #002244;
+        --secondary: #ffcc00;
+        --accent: #4ecdc4;
+        --dark: #001122;
+        --light: #f0f4f8;
     }
 
-    /* ===== CONTAINER CENTER ===== */
+    /* ===== RESET & BASE ===== */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        line-height: 1.6;
+        overflow-x: hidden;
+        background-color: var(--light);
+        padding-top: 80px; /* ন্যাভবারের জন্য স্পেস যোগ করা হয়েছে */
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 5%;
+        background: rgba(0, 34, 68, 0.9);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: transform 0.3s ease, background 0.3s ease;
+        backdrop-filter: blur(10px);
+    }
+
+    .navbar.hide {
+        transform: translateY(-100%);
+    }
+
+    .navbar.scrolled {
+        padding: 15px 5%;
+        background: rgba(0, 34, 68, 0.95);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        gap: 10px;
+    }
+
+    .logo h2 {
+        font-size: 28px;
+        font-weight: 900;
+        background: linear-gradient(45deg, #ff6b6b, #f7d794, #6a89cc, #38ada9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: rainbow-text 5s linear infinite;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .logo h2:hover {
+        transform: scale(1.1);
+    }
+
+    .logo span {
+        font-size: 18px;
+        font-weight: 700;
+        color: #f39c12;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+
+    @keyframes rainbow-text {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 25px;
+    }
+
+    .nav-link {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        position: relative;
+        touch-action: manipulation;
+    }
+
+    .nav-link:focus {
+        outline: 2px solid var(--secondary);
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background: var(--secondary);
+        transition: 0.3s ease;
+    }
+
+    .nav-link:hover {
+        color: var(--secondary);
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+    /* ===== HAMBURGER MENU ===== */
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: white;
+        transition: 0.3s ease;
+    }
+
+    /* ===== HERO BANNER ===== */
+    .hero-banner {
+        background: linear-gradient(rgba(15, 15, 15, 0.4), rgba(25, 26, 25, 0.137)),
+            url('../images/Malaysia-City-Tour.jpg') center/cover fixed;
+        min-height: 100vh;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        animation: fadeIn 1.5s ease-out;
+    }
+
+    .banner-content {
+        max-width: 1200px;
+        margin: auto;
+        padding: 85px 5% 100px;
+        text-align: center;
+    }
+
+    .animated-text {
+        font-size: 3rem;
+        font-weight: 700;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .divider {
+        width: 100px;
+        height: 4px;
+        background: var(--secondary);
+        margin: 20px auto;
+    }
+
+    /* ===== VISA SUPPORT SECTION ===== */
     .container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
     }
 
-    /* ===== VISA SECTION WRAPPER ===== */
-    .visa-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: flex-start;
-    justify-content: center;
+.visa-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: flex-start;
+        justify-content: center;
     }
 
-    /* ===== VISA MENU (LEFT SIDE) ===== */
-    .visa-menu {
-    width: 220px;
-    min-width: 180px;
+.visa-menu {
+        width: 220px;
+        min-width: 180px;
     }
 
     .visa-menu h3 {
-    margin-bottom: 20px;
-    font-size: 20px;
-    color: #003366;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+        margin-bottom: 20px;
+        font-size: 20px;
+        color: #003366;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
 
     .visa-types {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+        list-style: none;
+        padding: 0;
+        margin: 0;
     }
 
     .visa-types li {
-    background: #e4dbe9;
-    padding: 12px 18px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    color: #38ada9;
-    gap: 8px;
+        background: #ede9f0;
+        padding: 12px 18px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        color: #ee3c06;
+        gap: 8px;
+        touch-action: manipulation;
     }
 
     .visa-types li:hover,
     .visa-types li.active {
-    background-color: #003366;
-    color: #fff;
+        background-color: #003366;
+        color: #fff;
     }
 
-    /* ===== VISA DETAILS PANEL (RIGHT SIDE) ===== */
-    .visa-details {
-    flex: 1;
-    min-width: 750px;
-    max-width: 1550px;
-    background: white;
-    margin: 50px;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    position: relative;
-    overflow: hidden;
-    min-height: 550px;
+.visa-details {
+        flex: 1;
+        min-width: 350px;
+        max-width: 750px;
+        background: white;
+        margin: 50px;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        position: relative;
+        overflow: hidden;
+        min-height: 550px;
     }
 
-    /* ===== VISA DETAIL CONTENTS ===== */
-    .visa-detail {
-    display: none;
-    position: relative;
-    z-index: 1;
+.visa-detail {
+        display: none;
+        position: relative;
+        z-index: 1;
     }
 
     .visa-detail.active {
-    display: block;
+        display: block;
     }
 
     .visa-detail h4 {
-    color: #cc6600;
-    font-size: 20px;
-    margin-bottom: 10px;
+        color: #cc6600;
+        font-size: 20px;
+        margin-bottom: 10px;
     }
 
     .visa-detail ul {
-    padding-left: 20px;
-    margin: 15px 0;
+        padding-left: 20px;
+        margin: 15px 0;
     }
 
     .visa-detail li {
-    margin-bottom: 8px;
+        margin-bottom: 8px;
     }
 
     .visa-detail button {
-    padding: 10px 25px;
-    background: #ffc107;
-    color: #000;
-    font-weight: 600;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s;
+        padding: 10px 25px;
+        background: #ffc107;
+        color: #000;
+        font-weight: 600;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s;
     }
 
     .visa-detail button:hover {
-    background: #e0a800;
+        background: #e0a800;
     }
 
-    /* ===== BACKGROUND IMAGES FOR DETAILS ===== */
+    .visa-detail::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 0;
+        border-radius: 12px;
+    }
+
     #malaysia,
     #indonesia,
     #thailand,
     #india {
-    background-size: cover;
-    background-position: center;
-    color: rgb(16, 16, 17);
-    border-radius: 12px;
+        background-size: cover;
+        background-position: center;
+        color: #111;
+        border-radius: 12px;
     }
 
     #malaysia {
-    background-image: url('../images/malaysia-bg.jpg');
+        background-image: url('../images/malaysia-bg.jpg');
+    }
+#indonesia {
+        background-image: url('images/indonesia.jpg');
+    }
+#thailand {
+        background-image: url('images/thailand.jpg');
+    }
+#india {
+        background-image: url('images/india.jpg');
     }
 
-    #indonesia {
-    background-image: url('images/indonesia.jpg');
+    /* ===== UP COMING EVENTS ===== */
+    .upcoming-event {
+        padding: 80px 10%;
+        text-align: center;
     }
 
-    #thailand {
-    background-image: url('images/thailand.jpg');
+    .upcoming-event h2 {
+        font-size: 2.5rem;
+        color: var(--dark);
     }
 
-    #india {
-    background-image: url('images/india.jpg');
+    .event {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
     }
 
-    /* ===== OVERLAY EFFECT ===== */
-    .visa-detail::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 0;
-    border-radius: 12px;
+    .event-item {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: 0.3s;
+    }
+
+    .event-item:hover {
+        transform: translateY(-10px);
+    }
+
+    .event-item h4, .event-item p {
+        padding: 20px;
+    }
+
+    .event-item a {
+        display: inline-block;
+        margin: 0 20px 20px;
+        padding: 10px 20px;
+        border: 2px solid var(--secondary);
+        color: var(--secondary);
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.3s;
+        touch-action: manipulation;
+    }
+
+    .event-item a:hover {
+        background: var(--secondary);
+        color: white;
+    }
+
+    /* ===== EXPLORE SECTION ===== */
+    .explore-main {
+        background: linear-gradient(rgba(0, 0, 255, 0.4), rgba(0, 0, 255, 0.4)),
+            url('../images/father.jpg') center/cover fixed;
+        color: white;
+        padding: 100px 10%;
+    }
+
+    .Explore {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .explore-item {
+        flex: 1;
+        padding: 20px;
+    }
+
+    .explore-item h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .explore-item span {
+        display: block;
+        width: 100px;
+        height: 4px;
+        background: var(--secondary);
+        margin-bottom: 30px;
+    }
+
+    .explore-item p {
+        line-height: 1.8;
+    }
+
+    .explore-item a {
+        color: white;
+        font-weight: 600;
+        text-decoration: none;
+        border-bottom: 2px solid white;
+        padding-bottom: 5px;
+    }
+
+    .explore-item a:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+    }
+
+    /* ===== TOUR SECTION ===== */
+    .tour {
+        padding: 80px 10%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .tour-item h5 {
+        font-size: 1.8rem;
+        color: var(--dark);
+    }
+
+    .tour-item span {
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: var(--secondary);
+        margin: 20px 0;
+    }
+
+    .tour-item p {
+        line-height: 1.8;
+    }
+
+    .tour-item img {
+        padding-top: 20px;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 
     /* ===== RESPONSIVE DESIGN ===== */
     @media (max-width: 768px) {
-    .visa-section {
-        flex-direction: column;
-        align-items: center;
+        body {
+            padding-top: 70px;
+        }
+
+        .hamburger {
+            display: flex;
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: var(--dark);
+            flex-direction: column;
+            padding: 20px 0;
+            gap: 30px;
+            clip-path: circle(0 at 90% -10%);
+            transition: 0.5s ease-out;
+            height: calc(100vh - 70px);
+            justify-content: center;
+        }
+
+        .nav-links.active {
+            clip-path: circle(1000px at 90% -10%);
+        }
+
+        .nav-link {
+            font-size: 1.2rem;
+            padding: 10px 0;
+        }
+
+        .hero-banner {
+            min-height: 80vh;
+            background-attachment: scroll;
+        }
+
+        .banner-content {
+            padding: 100px 5% 60px;
+        }
+
+        .animated-text {
+            font-size: 1.8rem;
+            line-height: 1.3;
+        }
+
+        .visa-section {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .visa-menu,
+        .visa-details {
+            width: 100%;
+            margin: 0;
+        }
+
+        .explore-item, .tour-item {
+            flex: 100%;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
     }
 
-    .visa-menu,
-    .visa-details {
-        width: 100%;
-    }
-
-    .visa-menu {
-        margin-bottom: 20px;
-    }
-    }
-
-
-/* ===== UP COMING EVENTS ===== */
-.upcoming-event {
-    padding: 80px 10%;
-    text-align: center;
-}
-
-.upcoming-event h2 {
-    font-size: 2.5rem;
-    color: var(--dark);
-}
-
-.event {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.event-item {
-    background: white;
-    border-radius: 10px;
+    /* ===== FOOTER SECTION ===== */
+.site-footer {
+    background: var(--dark);
+    color: white;
+    padding: 40px 0;
+    position: relative;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
 }
 
-.event-item:hover {
-    transform: translateY(-10px);
-}
-
-.event-item h4, .event-item p {
-    padding: 20px;
-}
-
-.event-item a {
-    display: inline-block;
-    margin: 0 20px 20px;
-    padding: 10px 20px;
-    border: 2px solid var(--secondary);
-    color: var(--secondary);
-    border-radius: 50px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.event-item a:hover {
+.site-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
     background: var(--secondary);
-    color: white;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
 }
 
-/* ===== EXPLORE SECTION ===== */
-.explore-main {
-    background: linear-gradient(rgba(0, 0, 255, 0.4), rgba(0, 0, 255, 0.4)),
-        url('../images/father.jpg') center/cover fixed;
-    color: white;
-    padding: 100px 10%;
-}
-
-.Explore {
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
 }
 
-.explore-item {
-    flex: 1;
-    padding: 20px;
+.footer-content p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin: 0;
 }
 
-.explore-item h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+.social-links {
+    display: flex;
+    gap: 20px;
 }
 
-.explore-item span {
-    display: block;
-    width: 100px;
-    height: 4px;
-    background: var(--secondary);
-    margin-bottom: 30px;
-}
-
-.explore-item p {
-    line-height: 1.8;
-}
-
-.explore-item a {
-    color: white;
-    font-weight: 600;
+.social-links a {
     text-decoration: none;
-    border-bottom: 2px solid white;
-    padding-bottom: 5px;
+    color: white;
+    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.explore-item a:hover {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-}
-
-/* ===== TOUR SECTION ===== */
-.tour {
-    padding: 80px 10%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-
-.tour-item h5 {
-    font-size: 1.8rem;
-    color: var(--dark);
-}
-
-.tour-item span {
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: var(--secondary);
-    margin: 20px 0;
-}
-
-.tour-item p {
-    line-height: 1.8;
-}
-
-.tour-item img {
+.social-links a::after {
+    content: "";
+    position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    z-index: -1;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+    border-radius: 50%;
 }
 
-/* ===== ANIMATIONS ===== */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+.social-links a:hover {
+    color: var(--dark);
+    transform: translateY(-3px);
 }
 
-/* ===== RESPONSIVE ===== */
+.social-links a:hover::after {
+    transform: scale(1);
+}
+
+/* Footer Responsive Styles */
 @media (max-width: 768px) {
-    body {
-        padding-top: 70px;
+    .site-footer {
+        padding: 30px 0;
     }
     
-    .hamburger { 
-        display: flex; 
+    .footer-content {
+        gap: 20px;
     }
     
-    .nav-links {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: var(--dark);
-        flex-direction: column;
-        gap: 0;
-        padding: 20px 0;
-        clip-path: circle(0 at 90% -10%);
-        transition: 0.5s ease-out;
+    .social-links {
+        gap: 15px;
     }
     
-    .nav-links.active {
-        clip-path: circle(1000px at 90% -10%);
-    }
-    
-    .banner-content {
-        padding: 150px 5% 80px;
-    }
-    
-    .animated-text {
-        font-size: 2rem;
-    }
-    
-    .visa-support-container {
-        flex-direction: column;
-    }
-    
-    .visa-list, .visa-detail {
-        width: 100%;
-    }
-    
-    .explore-item, .tour-item {
-        flex: 100%;
+    .social-links a {
+        font-size: 1.3rem;
+        width: 40px;
+        height: 40px;
     }
 }
 
-/* ===== ENHANCED MOBILE RESPONSIVE STYLES ===== */
-
-/* Improved Mobile Menu Animation */
-@media (max-width: 768px) {
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-    }
-    
-    /* Smoother menu transition */
-    .nav-links {
-        height: calc(100vh - 70px);
-        justify-content: center;
-        gap: 30px;
-    }
-    
-    .nav-link {
-        font-size: 1.2rem;
-        padding: 10px 0;
-    }
-}
-
-/* Better Touch Targets for Mobile */
-.nav-link, .visa-types li, .event-item a {
-    touch-action: manipulation;
-}
-
-/* Optimized Hero Banner for Mobile */
-@media (max-width: 768px) {
-    .hero-banner {
-        min-height: 80vh;
-        background-attachment: scroll; /* Remove parallax on mobile */
-    }
-    
-    .banner-content {
-        padding: 100px 5% 60px;
-    }
-    
-    .animated-text {
-        font-size: 1.8rem;
-        line-height: 1.3;
-    }
-}
-
-/* Enhanced Visa Section for Small Screens */
 @media (max-width: 480px) {
-    .visa-details {
-        margin: 20px 0;
-        padding: 20px 15px;
-        min-height: auto;
+    .footer-content p {
+        font-size: 0.9rem;
     }
     
-    .visa-menu {
-        width: 100%;
-    }
-    
-    .visa-types li {
-        padding: 15px;
+    .social-links a {
+        font-size: 1.2rem;
+        width: 36px;
+        height: 36px;
     }
 }
 
-/* Improved Event Cards for Mobile */
-@media (max-width: 600px) {
-    .event {
-        grid-template-columns: 1fr;
+/* Animation for Footer Appearance */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-    
-    .event-item {
-        margin: 0 10px;
-    }
-}
-
-/* Better Form Inputs for Mobile */
-input, select, textarea, button {
-    font-size: 16px; /* Prevents iOS zoom on focus */
-    min-height: 44px; /* Better touch target */
-}
-
-/* Optimized Typography for Mobile */
-@media (max-width: 768px) {
-    body {
-        font-size: 15px;
-    }
-    
-    h1, .explore-item h1 {
-        font-size: 2rem;
-    }
-    
-    h2, .upcoming-event h2 {
-        font-size: 1.8rem;
-    }
-    
-    h5, .tour-item h5 {
-        font-size: 1.4rem;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* Performance Optimizations */
-img {
-    max-width: 100%;
-    height: auto;
-    will-change: transform;
-}
-
-/* Reduced Motion for Accessibility */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
-
-/* Landscape Orientation Adjustments */
-@media (max-width: 768px) and (orientation: landscape) {
-    .hero-banner {
-        min-height: 120vh;
-    }
-    
-    .nav-links {
-        max-height: 70vh;
-        overflow-y: auto;
-    }
-}
-
-/* Very Small Devices (e.g., iPhone 5/SE) */
-@media (max-width: 320px) {
-    .logo h2 {
-        font-size: 1.5rem;
-    }
-    
-    .banner-content {
-        padding: 80px 5% 40px;
-    }
-    
-    .divider, .explore-item span, .tour-item span {
-        width: 60px;
-    }
-}
-
-/* Tablet Specific Adjustments */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .visa-details {
-        min-width: 500px;
-    }
-    
-    .explore-item {
-        flex: 50%;
-    }
-}
-
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #121212;
-        color: #f1f1f1;
-    }
-    
-    .event-item, .visa-details {
-        background: #1e1e1e;
-        color: #f1f1f1;
-    }
-    
-    .visa-types li {
-        background: #2d2d2d;
-        color: #4ecdc4;
-    }
+.site-footer {
+    animation: slideUp 0.8s ease-out forwards;
 }
