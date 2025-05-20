@@ -1,650 +1,132 @@
-    /* ===== VARIABLES ===== */
+    /* Base Styles */
     :root {
-        --primary: #002244;
-        --secondary: #ffcc00;
-        --accent: #4ecdc4;
-        --dark: #001122;
-        --light: #f0f4f8;
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --light-color: #f8f9fa;
+    --dark-color: #34495e;
+    --text-color: #333;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
     }
 
-    /* ===== RESET & BASE ===== */
     * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     }
 
     body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #333;
-        line-height: 1.6;
-        overflow-x: hidden;
-        background-color: var(--light);
-        padding-top: 80px; /* ন্যাভবারের জন্য স্পেস যোগ করা হয়েছে */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f5f5f5;
+    }
+
+    a {
+    text-decoration: none;
+    color: inherit;
+    }
+
+    ul {
+    list-style: none;
     }
 
     img {
-        width: 100%;
-        height: auto;
-        display: block;
+    max-width: 100%;
+    height: auto;
     }
 
-    /* ===== NAVBAR ===== */
+    /* Navbar */
     .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 5%;
-        background: rgba(0, 34, 68, 0.9);
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        transition: transform 0.3s ease, background 0.3s ease;
-        backdrop-filter: blur(10px);
-    }
-
-    .navbar.hide {
-        transform: translateY(-100%);
-    }
-
-    .navbar.scrolled {
-        padding: 15px 5%;
-        background: rgba(0, 34, 68, 0.95);
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .logo ul {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        display: flex;
-        gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
     }
 
     .logo h2 {
-        font-size: 28px;
-        font-weight: 900;
-        background: linear-gradient(45deg, #ff6b6b, #f7d794, #6a89cc, #38ada9);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: rainbow-text 5s linear infinite;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
-
-    .logo h2:hover {
-        transform: scale(1.1);
+    font-size: 1.8rem;
+    color: var(--secondary-color);
     }
 
     .logo span {
-        font-size: 18px;
-        font-weight: 700;
-        color: #f39c12;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    }
-
-    @keyframes rainbow-text {
-        0% {background-position: 0% 50%;}
-        50% {background-position: 100% 50%;}
-        100% {background-position: 0% 50%;}
+    color: var(--primary-color);
     }
 
     .nav-links {
-        display: flex;
-        gap: 25px;
+    display: flex;
+    gap: 2rem;
     }
 
     .nav-link {
-        color: white;
-        text-decoration: none;
-        font-weight: 600;
-        position: relative;
-        touch-action: manipulation;
-    }
-
-    .nav-link:focus {
-        outline: 2px solid var(--secondary);
-    }
-
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background: var(--secondary);
-        transition: 0.3s ease;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 0.5rem 0;
+    position: relative;
     }
 
     .nav-link:hover {
-        color: var(--secondary);
+    color: var(--primary-color);
+    }
+
+    .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
     }
 
     .nav-link:hover::after {
-        width: 100%;
-    }
-
-    /* ===== HAMBURGER MENU ===== */
-    .hamburger {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-    }
-
-    .hamburger span {
-        width: 25px;
-        height: 3px;
-        background: white;
-        transition: 0.3s ease;
-    }
-
-    /* ===== HERO BANNER ===== */
-    .hero-banner {
-        background: linear-gradient(rgba(15, 15, 15, 0.4), rgba(25, 26, 25, 0.137)),
-            url('../images/Malaysia-City-Tour.jpg') center/cover fixed;
-        min-height: 100vh;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        animation: fadeIn 1.5s ease-out;
-    }
-
-    .banner-content {
-        max-width: 1200px;
-        margin: auto;
-        padding: 85px 5% 100px;
-        text-align: center;
-    }
-
-    .animated-text {
-        font-size: 3rem;
-        font-weight: 700;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    }
-
-    .divider {
-        width: 100px;
-        height: 4px;
-        background: var(--secondary);
-        margin: 20px auto;
-    }
-
-    /* ===== VISA SUPPORT SECTION ===== */
-    .container {
-        max-width: 1200px;
-        margin: 40px auto;
-        padding: 0 20px;
-    }
-
-.visa-section {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        align-items: flex-start;
-        justify-content: center;
-    }
-
-.visa-menu {
-        width: 220px;
-        min-width: 180px;
-    }
-
-    .visa-menu h3 {
-        margin-bottom: 20px;
-        font-size: 20px;
-        color: #003366;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .visa-types {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .visa-types li {
-        background: #ede9f0;
-        padding: 12px 18px;
-        margin-bottom: 10px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-weight: 500;
-        display: flex;
-        align-items: center;
-        color: #ee3c06;
-        gap: 8px;
-        touch-action: manipulation;
-    }
-
-    .visa-types li:hover,
-    .visa-types li.active {
-        background-color: #003366;
-        color: #fff;
-    }
-
-.visa-details {
-        flex: 1;
-        min-width: 350px;
-        max-width: 750px;
-        background: white;
-        margin: 50px;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-        position: relative;
-        overflow: hidden;
-        min-height: 550px;
-    }
-
-.visa-detail {
-        display: none;
-        position: relative;
-        z-index: 1;
-    }
-
-    .visa-detail.active {
-        display: block;
-    }
-
-    .visa-detail h4 {
-        color: #cc6600;
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
-
-    .visa-detail ul {
-        padding-left: 20px;
-        margin: 15px 0;
-    }
-
-    .visa-detail li {
-        margin-bottom: 8px;
-    }
-
-    .visa-detail button {
-        padding: 10px 25px;
-        background: #ffc107;
-        color: #000;
-        font-weight: 600;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: background 0.3s;
-    }
-
-    .visa-detail button:hover {
-        background: #e0a800;
-    }
-
-    .visa-detail::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.3);
-        z-index: 0;
-        border-radius: 12px;
-    }
-
-    #malaysia,
-    #indonesia,
-    #thailand,
-    #india {
-        background-size: cover;
-        background-position: center;
-        color: #111;
-        border-radius: 12px;
-    }
-
-    #malaysia {
-        background-image: url('../images/malaysia-bg.jpg');
-    }
-#indonesia {
-        background-image: url('images/indonesia.jpg');
-    }
-#thailand {
-        background-image: url('images/thailand.jpg');
-    }
-#india {
-        background-image: url('images/india.jpg');
-    }
-
-    /* ===== UP COMING EVENTS ===== */
-    .upcoming-event {
-        padding: 80px 10%;
-        text-align: center;
-    }
-
-    .upcoming-event h2 {
-        font-size: 2.5rem;
-        color: var(--dark);
-    }
-
-    .event {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-top: 40px;
-    }
-
-    .event-item {
-        background: white;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        transition: 0.3s;
-    }
-
-    .event-item:hover {
-        transform: translateY(-10px);
-    }
-
-    .event-item h4, .event-item p {
-        padding: 20px;
-    }
-
-    .event-item a {
-        display: inline-block;
-        margin: 0 20px 20px;
-        padding: 10px 20px;
-        border: 2px solid var(--secondary);
-        color: var(--secondary);
-        border-radius: 50px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: 0.3s;
-        touch-action: manipulation;
-    }
-
-    .event-item a:hover {
-        background: var(--secondary);
-        color: white;
-    }
-
-    /* ===== EXPLORE SECTION ===== */
-    .explore-main {
-        background: linear-gradient(rgba(0, 0, 255, 0.4), rgba(0, 0, 255, 0.4)),
-            url('../images/father.jpg') center/cover fixed;
-        color: white;
-        padding: 100px 10%;
-    }
-
-    .Explore {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .explore-item {
-        flex: 1;
-        padding: 20px;
-    }
-
-    .explore-item h1 {
-        font-size: 3rem;
-        margin-bottom: 20px;
-    }
-
-    .explore-item span {
-        display: block;
-        width: 100px;
-        height: 4px;
-        background: var(--secondary);
-        margin-bottom: 30px;
-    }
-
-    .explore-item p {
-        line-height: 1.8;
-    }
-
-    .explore-item a {
-        color: white;
-        font-weight: 600;
-        text-decoration: none;
-        border-bottom: 2px solid white;
-        padding-bottom: 5px;
-    }
-
-    .explore-item a:hover {
-        color: var(--accent);
-        border-bottom-color: var(--accent);
-    }
-
-    /* ===== TOUR SECTION ===== */
-    .tour {
-        padding: 80px 10%;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-    }
-
-    .tour-item h5 {
-        font-size: 1.8rem;
-        color: var(--dark);
-    }
-
-    .tour-item span {
-        display: block;
-        width: 80px;
-        height: 4px;
-        background: var(--secondary);
-        margin: 20px 0;
-    }
-
-    .tour-item p {
-        line-height: 1.8;
-    }
-
-    .tour-item img {
-        padding-top: 20px;
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ===== RESPONSIVE DESIGN ===== */
-    @media (max-width: 768px) {
-        body {
-            padding-top: 70px;
-        }
-
-        .hamburger {
-            display: flex;
-        }
-
-        .nav-links {
-            position: fixed;
-            top: 70px;
-            left: 0;
-            width: 100%;
-            background: var(--dark);
-            flex-direction: column;
-            padding: 20px 0;
-            gap: 30px;
-            clip-path: circle(0 at 90% -10%);
-            transition: 0.5s ease-out;
-            height: calc(100vh - 70px);
-            justify-content: center;
-        }
-
-        .nav-links.active {
-            clip-path: circle(1000px at 90% -10%);
-        }
-
-        .nav-link {
-            font-size: 1.2rem;
-            padding: 10px 0;
-        }
-
-        .hero-banner {
-            min-height: 80vh;
-            background-attachment: scroll;
-        }
-
-        .banner-content {
-            padding: 100px 5% 60px;
-        }
-
-        .animated-text {
-            font-size: 1.8rem;
-            line-height: 1.3;
-        }
-
-        .visa-section {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .visa-menu,
-        .visa-details {
-            width: 100%;
-            margin: 0;
-        }
-
-        .explore-item, .tour-item {
-            flex: 100%;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-    }
-
-    /* ===== FOOTER SECTION ===== */
-.site-footer {
-    background: var(--dark);
-    color: white;
-    padding: 40px 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.site-footer::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 4px;
-    background: var(--secondary);
-    background: linear-gradient(90deg, var(--secondary), var(--accent));
-}
+    }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 25px;
-}
-
-.footer-content p {
-    font-size: 1rem;
-    opacity: 0.9;
+    /* APPLICATION */
+    /* General Styles */
+* {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
 
-.social-links {
-    display: flex;
-    gap: 20px;
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
 }
 
-.social-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.5rem;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+/* Application Section */
+#application {
+    padding: 60px 20px;
+    background: linear-gradient(to bottom right, #e3f2fd, #ffffff);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background: url('../images/Malaysia-City-Tour.jpg') fixed center center/cover;
 }
 
-.social-links a::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, var(--secondary), var(--accent));
-    z-index: -1;
-    transform: scale(0);
-    transition: transform 0.3s ease;
-    border-radius: 50%;
+#application h1.animated-text {
+    text-align: center;
+    font-size: 2.5rem;
+    color: rgb(24, 252, 4);
+    margin: 70px 0 0 40px;
+    animation: fadeInDown 1s ease-in-out;
 }
 
-.social-links a:hover {
-    color: var(--dark);
-    transform: translateY(-3px);
-}
-
-.social-links a:hover::after {
-    transform: scale(1);
-}
-
-/* Footer Responsive Styles */
-@media (max-width: 768px) {
-    .site-footer {
-        padding: 30px 0;
-    }
-    
-    .footer-content {
-        gap: 20px;
-    }
-    
-    .social-links {
-        gap: 15px;
-    }
-    
-    .social-links a {
-        font-size: 1.3rem;
-        width: 40px;
-        height: 40px;
-    }
-}
-
-@media (max-width: 480px) {
-    .footer-content p {
-        font-size: 0.9rem;
-    }
-    
-    .social-links a {
-        font-size: 1.2rem;
-        width: 36px;
-        height: 36px;
-    }
-}
-
-/* Animation for Footer Appearance */
-@keyframes slideUp {
+@keyframes fadeInDown {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(-30px);
     }
     to {
         opacity: 1;
@@ -652,6 +134,546 @@
     }
 }
 
-.site-footer {
-    animation: slideUp 0.8s ease-out forwards;
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
 }
+
+/* Visa Menu (Left Side) */
+.visa-menu {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    /* background-color: #f5faff; */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.visa-menu h3 {
+    font-size: 30px;
+    color: #f5f7f8;
+    margin-bottom: 15px;
+}
+
+.country-list {
+    list-style: none;
+    padding: 0;
+}
+
+.country-list li {
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    background-color: #e0f0ff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    color: #05f86a;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.country-list li:hover,
+.country-list li.active {
+    background-color: #007BFF;
+    color: white;
+    font-weight: bold;
+}
+
+/* Visa Details (Right Side) */
+.visa-details {
+    flex: 2;
+    min-width: 300px;
+    max-width: 650px;
+    max-height: 450px;
+    min-height: 100px;
+    margin-top: 140px;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.visa-detail {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.visa-detail h4 {
+    font-size: 15px;
+    color: #0e83c7;
+    margin-bottom: 15px;
+}
+
+.visa-detail ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.visa-detail ul li {
+    margin-bottom: 8px;
+    color: rgb(15, 221, 152);
+    font-size: 20px;
+}
+
+.visa-detail p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.visa-detail button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.visa-detail button:hover {
+    background-color: #218838;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+}
+
+/* UPCOMING TOURS SECTION */
+#upcoming {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#upcoming .container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+/* Tour Menu (Left Side) */
+.tour-menu {
+    flex: 1;
+    background: #ce0707;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tour-menu h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+}
+
+.destination-list {
+    list-style: none;
+    padding: 0;
+}
+
+.destination-list li {
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.destination-list li:hover,
+.destination-list li.active {
+    background: #3498db;
+    color: white;
+    border-left: 3px solid #2980b9;
+}
+
+/* Destination Details (Right Side) */
+.destination-details {
+    flex: 2;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.destination-detail {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.destination-detail.active {
+    display: block;
+}
+
+.destination-detail h4 {
+    color: #2c3e50;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+}
+
+.destination-detail ul {
+    margin: 1.5rem 0;
+    padding-left: 1.2rem;
+}
+
+.destination-detail ul li {
+    margin-bottom: 0.7rem;
+    position: relative;
+    padding-left: 1.5rem;
+    color: #555;
+}
+
+.destination-detail ul li::before {
+    content: "•";
+    color: #3498db;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -3px;
+}
+
+.destination-detail p {
+    margin: 1.5rem 0;
+    color: #555;
+    line-height: 1.7;
+}
+
+.destination-detail button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.destination-detail button:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #upcoming .container {
+        flex-direction: column;
+    }
+    
+    .tour-menu, .destination-details {
+        width: 100%;
+    }
+}
+
+    /* FUTURE Events */
+    .upcoming-event {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--secondary-color);
+    }
+
+    .upcoming-event h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+    }
+
+    .event {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    }
+
+    .event-item {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    }
+
+    .event-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .event-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    }
+
+    .event-item h4 {
+    font-size: 1.3rem;
+    padding: 1rem 1.5rem 0;
+    color: var(--secondary-color);
+    }
+
+    .event-item p {
+    padding: 0.5rem 1.5rem 1rem;
+    color: var(--dark-color);
+    }
+
+    .event-item a {
+    display: inline-block;
+    margin: 0 1.5rem 1.5rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    transition: var(--transition);
+    }
+
+    .event-item a:hover {
+    color: var(--accent-color);
+    }
+
+/* EXPLORE WORLD */
+/* Explore Section Styles */
+.explore-section {
+    padding: 80px 20px;
+    background-color: #f8f9fa;
+    font-family: 'Poppins', sans-serif;
+}
+
+.explore-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    gap: 50px;
+}
+
+.explore-content {
+    flex: 1;
+    padding: 30px;
+}
+
+.explore-title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.explore-divider {
+    width: 80px;
+    height: 4px;
+    background: #3498db;
+    margin: 20px 0;
+}
+
+.explore-text {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.explore-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.explore-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(41, 128, 185, 0.3);
+}
+
+.explore-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.explore-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.explore-img:hover {
+    transform: scale(1.03);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .explore-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .explore-content {
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .explore-divider {
+        margin: 20px auto;
+    }
+    
+    .explore-title {
+        font-size: 2rem;
+    }
+}
+
+    /* FUTURE FOREVER */
+    .tour {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    }
+
+    .tour-item {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    }
+
+    .tour-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .tour-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    }
+
+    .tour-item h5 {
+    font-size: 1.3rem;
+    padding: 1rem 1.5rem 0;
+    color: var(--secondary-color);
+    }
+
+    .tour-item span {
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 0.5rem 1.5rem;
+    }
+
+    .tour-item p {
+    padding: 0 1.5rem 1.5rem;
+    color: var(--dark-color);
+    }
+
+    /* Footer */
+    .site-footer {
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 2rem;
+    text-align: center;
+    }
+
+    .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    }
+
+    .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    }
+
+    .social-links a {
+    font-size: 1.5rem;
+    transition: var(--transition);
+    }
+
+    .social-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+        flex-direction: column;
+    }
+    
+    .nav-links {
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+    
+    .hero-banner {
+        padding: 6rem 1rem 3rem;
+    }
+    
+    .animated-text {
+        font-size: 2rem;
+    }
+    
+    .visa-section, .Explore {
+        flex-direction: column;
+    }
+    
+    .visa-menu, .visa-details, .explore-item {
+        width: 100%;
+        min-width: auto;
+        max-width: 100%;
+    }
+    
+    .place-name {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    }
+
+    @media (max-width: 480px) {
+    .place-name {
+        grid-template-columns: 1fr;
+    }
+    
+    .event, .tour {
+        grid-template-columns: 1fr;
+    }
+    }
