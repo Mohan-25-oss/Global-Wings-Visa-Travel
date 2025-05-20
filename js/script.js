@@ -1,3 +1,108 @@
+// Navbar Smooth Scrolling
+document.querySelectorAll('.nav-link').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if(targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80, // Adjust for fixed header
+                behavior: 'smooth'
+            });
+            
+            // Close mobile menu if open
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.remove('active');
+        }
+    });
+});
+
+// Mobile Menu Toggle
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+// Visa Support Functionality
+function showVisaDetail(countryId) {
+    // Remove active class from all country list items
+    document.querySelectorAll('.country-list li').forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // Add active class to clicked item
+    event.target.classList.add('active');
+    
+    // Hide all visa details
+    document.querySelectorAll('.visa-detail').forEach(detail => {
+        detail.classList.remove('active');
+    });
+    
+    // Show the selected visa detail
+    const selectedDetail = document.getElementById(countryId);
+    if(selectedDetail) {
+        selectedDetail.classList.add('active');
+        
+        // Scroll to visa section if on mobile
+        if(window.innerWidth <= 768) {
+            document.getElementById('application').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    }
+}
+
+// Tour Details Functionality
+function showTourDetail(destinationId) {
+    // Similar logic as showVisaDetail
+    document.querySelectorAll('.destination-list li').forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    event.target.classList.add('active');
+    
+    document.querySelectorAll('.destination-detail').forEach(detail => {
+        detail.classList.remove('active');
+    });
+    
+    const selectedDetail = document.getElementById(destinationId);
+    if(selectedDetail) {
+        selectedDetail.classList.add('active');
+    }
+}
+
+function scrollToDetails() {
+    if(window.innerWidth <= 768) {
+        const detailsSection = document.querySelector('.destination-details');
+        if(detailsSection) {
+            detailsSection.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    }
+}
+
+// Initialize active states on load
+document.addEventListener('DOMContentLoaded', function() {
+    // Set first visa option as active
+    const firstVisaOption = document.querySelector('.country-list li');
+    if(firstVisaOption) firstVisaOption.classList.add('active');
+    
+    const firstVisaDetail = document.querySelector('.visa-detail');
+    if(firstVisaDetail) firstVisaDetail.classList.add('active');
+    
+    // Set first tour option as active
+    const firstTourOption = document.querySelector('.destination-list li');
+    if(firstTourOption) firstTourOption.classList.add('active');
+    
+    const firstTourDetail = document.querySelector('.destination-detail');
+    if(firstTourDetail) firstTourDetail.classList.add('active');
+});
+
 // Application start
 // Function to show visa details for selected country
 // Function to show visa details for selected country
@@ -84,6 +189,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // explore section
 // Animate explore section on scroll
+// ডেস্টিনেশন ডিটেইলসে স্ক্রল করার ফাংশন
+function scrollToDetails() {
+    // শুধু মোবাইল ডিভাইসে কাজ করবে
+    if (window.innerWidth <= 768) {
+        const detailsSection = document.querySelector('.destination-details');
+        if (detailsSection) {
+            // স্মুথ স্ক্রলিং ইফেক্ট সহ
+            detailsSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // সামান্য উপরে স্ক্রল (ঐচ্ছিক)
+            window.scrollBy(0, -50);
+        }
+    }
+}
+
+// বিদ্যমান showTourDetail ফাংশন
+// (Removed duplicate function definition)
+
 document.addEventListener('DOMContentLoaded', function() {
     const exploreSection = document.querySelector('.explore-section');
     
@@ -98,11 +224,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Set initial state for animation
-    exploreSection.style.opacity = '0';
-    exploreSection.style.transform = 'translateY(20px)';
-    exploreSection.style.transition = 'all 0.8s ease';
-    
-    window.addEventListener('scroll', animateOnScroll);
-    // Trigger once on load in case already in view
-    animateOnScroll();
+    if (exploreSection) {
+        exploreSection.style.opacity = '0';
+        exploreSection.style.transform = 'translateY(20px)';
+        exploreSection.style.transition = 'all 0.8s ease';
+        
+        window.addEventListener('scroll', animateOnScroll);
+        // Trigger once on load in case already in view
+        animateOnScroll();
+    }
 });

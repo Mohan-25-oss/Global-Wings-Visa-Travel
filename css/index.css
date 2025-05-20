@@ -388,11 +388,17 @@ body {
     #upcoming .container {
         flex-direction: column;
     }
-    
-    .tour-menu, .destination-details {
+
+    .tour-menu,
+    .country-details {
         width: 100%;
     }
+
+    .country-details {
+        scroll-margin-top: 20px; /* স্ক্রল করলে হেডারের নিচে একটু ফাঁকা থাকবে */
+    }
 }
+
 
     /* FUTURE Events */
     .upcoming-event {
